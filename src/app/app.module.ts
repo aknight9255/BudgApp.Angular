@@ -19,17 +19,18 @@ import { TransactionCreateComponent } from './components/transaction/transaction
 import { TransactionDeleteComponent } from './components/transaction/transaction-delete/transaction-delete.component';
 import { TransactionEditComponent } from './components/transaction/transaction-edit/transaction-edit.component';
 import { TransactionIndexComponent } from './components/transaction/transaction-index/transaction-index.component';
-import { Auth } from './guards/auth.guard/auth.guard.component';
-import { Auth } from './service/auth.service/auth.service.component';
-import { Income } from './service/income.service/income.service.component';
-import { Category } from './service/category.service/category.service.component';
-import { Transaction } from './service/transaction.service/transaction.service.component';
 import { RegisterUserComponent } from './models/register-user/register-user.component';
+import { AuthService } from './service/auth.service';
 import { TokenComponent } from './models/token/token.component';
 import { UserInfoComponent } from './models/user-info/user-info.component';
 import { IncomeComponent } from './models/income/income.component';
 import { CategoryComponent } from './models/category/category.component';
 import { TransactionComponent } from './models/transaction/transaction.component';
+
+import {AuthGuard } from './guards/auth.guard';
+import { CategoryService} from './service/category.service';
+import { IncomeService} from './service/income.service';
+import { TransactionService } from './service/transaction.service';
 
 @NgModule({
   declarations: [
@@ -50,11 +51,6 @@ import { TransactionComponent } from './models/transaction/transaction.component
     TransactionDeleteComponent,
     TransactionEditComponent,
     TransactionIndexComponent,
-    Auth.GuardComponent,
-    Auth.ServiceComponent,
-    Income.ServiceComponent,
-    Category.ServiceComponent,
-    Transaction.ServiceComponent,
     RegisterUserComponent,
     TokenComponent,
     UserInfoComponent,
@@ -66,7 +62,13 @@ import { TransactionComponent } from './models/transaction/transaction.component
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    CategoryService,
+    IncomeService,
+    TransactionService,
+    AuthGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
