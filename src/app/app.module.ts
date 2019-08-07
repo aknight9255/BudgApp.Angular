@@ -19,13 +19,11 @@ import { TransactionCreateComponent } from './components/transaction/transaction
 import { TransactionDeleteComponent } from './components/transaction/transaction-delete/transaction-delete.component';
 import { TransactionEditComponent } from './components/transaction/transaction-edit/transaction-edit.component';
 import { TransactionIndexComponent } from './components/transaction/transaction-index/transaction-index.component';
-import { RegisterUserComponent } from './models/register-user';
 import { AuthService } from './service/auth.service';
-import { TokenComponent } from './models/token';
-import { UserInfoComponent } from './models/user-info';
-import { IncomeComponent } from './models/income';
-import { CategoryComponent } from './models/category';
-import { TransactionComponent } from './models/transaction';
+
+import { MatToolbarModule,
+         MatButtonModule,
+} from '@angular/material';
 
 import {AuthGuard } from './guards/auth.guard';
 import { CategoryService} from './service/category.service';
@@ -51,16 +49,12 @@ import { TransactionService } from './service/transaction.service';
     TransactionDeleteComponent,
     TransactionEditComponent,
     TransactionIndexComponent,
-    RegisterUserComponent,
-    TokenComponent,
-    UserInfoComponent,
-    IncomeComponent,
-    CategoryComponent,
-    TransactionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
   ],
   providers: [
     AuthService,
