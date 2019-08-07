@@ -24,6 +24,7 @@ import { AuthService } from './service/auth.service';
 import { MatToolbarModule,
          MatButtonModule,
 } from '@angular/material';
+import {MatDividerModule} from '@angular/material/divider';
 
 import {AuthGuard } from './guards/auth.guard';
 import { CategoryService} from './service/category.service';
@@ -55,6 +56,8 @@ import { TransactionService } from './service/transaction.service';
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
+    MatDividerModule,
+    
   ],
   providers: [
     AuthService,
