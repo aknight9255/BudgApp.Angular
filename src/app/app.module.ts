@@ -1,11 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import {
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
+} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { AuthService } from './service/auth.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { IncomeCreateComponent } from './components/income/income-create/income-create.component';
 import { IncomeDeleteComponent } from './components/income/income-delete/income-delete.component';
@@ -19,13 +28,6 @@ import { TransactionCreateComponent } from './components/transaction/transaction
 import { TransactionDeleteComponent } from './components/transaction/transaction-delete/transaction-delete.component';
 import { TransactionEditComponent } from './components/transaction/transaction-edit/transaction-edit.component';
 import { TransactionIndexComponent } from './components/transaction/transaction-index/transaction-index.component';
-import { RegisterUserComponent } from './models/register-user';
-import { AuthService } from './service/auth.service';
-import { TokenComponent } from './models/token';
-import { UserInfoComponent } from './models/user-info';
-import { IncomeComponent } from './models/income';
-import { CategoryComponent } from './models/category';
-import { TransactionComponent } from './models/transaction';
 
 import {AuthGuard } from './guards/auth.guard';
 import { CategoryService} from './service/category.service';
@@ -51,16 +53,17 @@ import { TransactionService } from './service/transaction.service';
     TransactionDeleteComponent,
     TransactionEditComponent,
     TransactionIndexComponent,
-    RegisterUserComponent,
-    TokenComponent,
-    UserInfoComponent,
-    IncomeComponent,
-    CategoryComponent,
-    TransactionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    AppRoutingModule,
   ],
   providers: [
     AuthService,
