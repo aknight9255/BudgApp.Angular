@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
 import {
     MatToolbarModule,
     MatButtonModule,
@@ -10,6 +11,7 @@ import {
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
@@ -34,6 +36,12 @@ import { CategoryService} from './service/category.service';
 import { IncomeService} from './service/income.service';
 import { TransactionService } from './service/transaction.service';
 
+
+const routes = [
+  {path: 'register', component: RegistrationComponent},
+  {path: '**', component: RegistrationComponent}
+]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,14 +64,17 @@ import { TransactionService } from './service/transaction.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    AppRoutingModule,    
+    AppRoutingModule,
+        
   ],
   providers: [
     AuthService,
