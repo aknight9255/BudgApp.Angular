@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+  private _registerForm: FormGroup;
 
-  constructor() { }
+  constructor(private _form: FormBuilder,private _authService: AuthService) {
+    this.createForm();
+   }
 
   ngOnInit() {
   }
+
+  createForm(){
+    this._registerForm = this._form.group({
+      email: new FormControl,
+      pasword: new FormControl,
+      confirmPassword: new FormControl
+    });
+  }
+
+  onSubmit(){
+    console.log(this._registerForm.value);
+  }
+
 
 }
