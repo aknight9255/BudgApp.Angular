@@ -1,0 +1,36 @@
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.nav-btn {
+    margin-right: 0.5em;
+    color: rgb(255, 255, 255);
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
+
+.nav-btn-raised {
+    background-color: rgb(93, 189, 179);
+}
+
+.mat-toolbar.mat-primary {
+    background-color: rgb(92, 202, 191);
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: blue;
+}
+
+.mat-toolbar{
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 40px;
+}
+
+.logo-image{
+    width: 55px;
+    height: 55px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

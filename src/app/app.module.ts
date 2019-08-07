@@ -63,7 +63,7 @@ import { TransactionService } from './service/transaction.service';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    AppRoutingModule,
+    AppRoutingModule,    
   ],
   providers: [
     AuthService,
