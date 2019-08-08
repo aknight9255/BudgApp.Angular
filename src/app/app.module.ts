@@ -47,9 +47,15 @@ const routes = [
       {path: '', component: IncomeIndexComponent },
       {path: 'create', component: IncomeCreateComponent},
       {path: 'edit', component: IncomeEditComponent},
+      {path: 'delete', component: IncomeDeleteComponent},
     ]
   },
-  {path: 'category', component: CategoryIndexComponent},
+  {path: 'category', children: [
+    {path: '', component: CategoryIndexComponent},
+    {path: 'create', component: CategoryCreateComponent},
+  ]
+},
+  
   {path: '**', component: RegistrationComponent},
 ]
 

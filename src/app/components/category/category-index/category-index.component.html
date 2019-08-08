@@ -1,18 +1,11 @@
 <h1>Index</h1>
-<a mat-raised-button color="primary" routerLink="/category/Create">Create New</a>
+<a mat-raised-button color="primary" routerLink="/category/create">Create New</a>
 <hr>
 
 <div>
   <mat-table #table [dataSource]="dataSource">
     <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
-
-    <ng-container matColumnDef="details">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
-      <mat-cell *matCellDef="let category" class="matColumnSize"> 
-          <i class="material-icons" routerLink="/category/detail/{{category.CategoryID}}">library_books</i>
-      </mat-cell>
-    </ng-container>
 
     <ng-container matColumnDef="CategoryID">
       <mat-header-cell *matHeaderCellDef> Category ID </mat-header-cell>
