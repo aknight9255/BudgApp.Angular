@@ -24,7 +24,7 @@ updateIncome(income: Income) {
   return this._http.put(`${Api_Url}/Income`, income, { headers: this.getHeaders() });
 }
 
-deleteNote(id: number){
+deleteIncome(id: number){
   return this._http.delete(`${Api_Url}/Income/${id}`, { headers: this.getHeaders() });
 }
 private getHeaders(){
