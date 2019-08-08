@@ -42,7 +42,20 @@ import { TransactionService } from './service/transaction.service';
 const routes = [
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'category', component: CategoryIndexComponent},
+  {
+    path: 'incomes', children: [
+      {path: '', component: IncomeIndexComponent },
+      {path: 'create', component: IncomeCreateComponent},
+      {path: 'edit', component: IncomeEditComponent},
+      {path: 'delete', component: IncomeDeleteComponent},
+    ]
+  },
+  {path: 'category', children: [
+    {path: '', component: CategoryIndexComponent},
+    {path: 'create', component: CategoryCreateComponent},
+  ]
+},
+  
   {path: '**', component: RegistrationComponent},
 ]
 
@@ -77,6 +90,7 @@ const routes = [
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
     AppRoutingModule,
     MatDividerModule,
     MatTableModule,

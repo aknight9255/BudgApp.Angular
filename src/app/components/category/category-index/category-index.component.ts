@@ -18,7 +18,6 @@ export class CategoryIndexComponent implements OnInit {
   ngOnInit() {
     this._categoryService.getCategory().subscribe((categories: Category[]) => { // On init, retreives all the categories from the API
       this.dataSource = new MatTableDataSource<Category>(categories);
-      console.log(categories);
     });
 
   }

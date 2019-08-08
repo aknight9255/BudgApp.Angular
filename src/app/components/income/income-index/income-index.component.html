@@ -1,1 +1,30 @@
-<p>income-index works!</p>
+<h1>Income Index </h1>
+
+<a mat-raised-button color="primary" routerLink="/incomes/create"> Create New </a>
+<hr> 
+
+<div>
+    <mat-table #table [dataSource]="dataSource">
+        <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+
+        <ng-container matColumnDef="IncomeAmount">
+            <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
+            <mat-cell *matCellDef="let income">{{income.IncomeAmount}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="IncomeDate">
+            <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+            <mat-cell *matCellDef="let income">{{income.IncomeDate | date: 'fullDate'}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="buttons">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let income">
+                <i mat-icon class="material-icons" routerLink="/incomes/edit/{{income.IncomeID}}"> edit </i>
+                <i class="material-icons" routerLink="/incomes/delete/{{income.IncomeID}}">delete</i>
+            </mat-cell>
+        </ng-container>
+
+    </mat-table>
+</div>
