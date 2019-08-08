@@ -9,6 +9,7 @@ import {
     MatFormFieldModule,
     MatInputModule
 } from '@angular/material';
+import {MatDividerModule} from '@angular/material/divider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -75,7 +76,7 @@ const routes = [
     MatFormFieldModule,
     MatInputModule,
     AppRoutingModule,
-        
+    MatDividerModule,
   ],
   providers: [
     AuthService,
