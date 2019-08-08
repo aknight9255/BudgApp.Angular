@@ -49,7 +49,8 @@ const routes = [
       {path: 'edit', component: IncomeEditComponent},
     ]
   },
-  {path: '**', component: RegistrationComponent}
+  {path: 'category', component: CategoryIndexComponent},
+  {path: '**', component: RegistrationComponent},
 ]
 
 @NgModule({
@@ -86,6 +87,7 @@ const routes = [
     MatTableModule,
     AppRoutingModule,
     MatDividerModule,
+    MatTableModule,
   ],
   providers: [
     AuthService,
