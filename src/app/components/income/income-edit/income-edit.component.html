@@ -1,1 +1,25 @@
-<p>income-edit works!</p>
+<h1>Edit an income.</h1>
+<hr>
+
+<div *ngIf='note'>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)"[formGroup]="editNoteForm">
+        <div>
+            <div hidden>
+                <mat-form-field>
+                    <input matInput placeholder="IncomeID" formControlName="IncomeID" type="IncomeID" required [value]="income.IncomeID" />
+                </mat-form-field>
+            </div>
+            <div>
+                    <mat-form-field>
+                        <input matInput placeholder="IncomeAmount" formControlName="IncomeAmount" type="IncomeAmount" required [value]="income.IncomeAmount" />
+                    </mat-form-field>
+            </div>
+            <div>
+                    <mat-form-field>
+                        <input matInput placeholder="IncomeDate" formControlName="IncomeDate" type="IncomeDate" required [value]="income.IncomeDate" />
+                    </mat-form-field>
+            </div>
+        </div>
+        <button mat-raised-button class="nav-btn" color="primary" type="submit">Save</button>
+    </form>
+</div>

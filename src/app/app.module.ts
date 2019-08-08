@@ -42,6 +42,13 @@ import { TransactionService } from './service/transaction.service';
 const routes = [
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
+  {
+    path: 'incomes', children: [
+      {path: '', component: IncomeIndexComponent },
+      {path: 'create', component: IncomeCreateComponent},
+      {path: 'edit', component: IncomeEditComponent},
+    ]
+  },
   {path: 'category', component: CategoryIndexComponent},
   {path: '**', component: RegistrationComponent},
 ]
@@ -77,6 +84,7 @@ const routes = [
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
     AppRoutingModule,
     MatDividerModule,
     MatTableModule,

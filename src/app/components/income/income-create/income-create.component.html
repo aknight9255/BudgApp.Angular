@@ -1,1 +1,20 @@
-<p>income-create works!</p>
+<h1>Add Income</h1>
+<hr>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="incomeForm">
+  <div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="IncomeAmount" formControlName="IncomeAmount" type="IncomeAmount" required/>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="IncomeDate" formControlName="IncomeDate" type="IncomeDate" required/>
+      </mat-form-field>
+    </div>
+  </div>
+  <button mat-raised-button class="nav-btn" color="primary" type="submit">Add Income</button>
+</form>
+
+<a mat-button routerLink="/notes">Back to List</a>
