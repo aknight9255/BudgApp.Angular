@@ -43,7 +43,7 @@ export class CategoryEditComponent implements OnInit {
     };
     this._categoryService.updateCategory(updateCategory).subscribe(d => {
       this._router.navigate(['/category']);
-    })
+    });
   }
 
 }
