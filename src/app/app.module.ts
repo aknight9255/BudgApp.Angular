@@ -53,9 +53,10 @@ const routes = [
   {path: 'category', children: [
     {path: '', component: CategoryIndexComponent},
     {path: 'create', component: CategoryCreateComponent},
+    {path: 'edit/:id', component: CategoryEditComponent},
+    {path: 'delete/:id', component: CategoryDeleteComponent},
   ]
 },
-  
   {path: '**', component: RegistrationComponent},
 ]
 
