@@ -7,7 +7,8 @@ import {
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
 } from '@angular/material';
 import {MatDividerModule} from '@angular/material/divider';
 
@@ -41,7 +42,8 @@ import { TransactionService } from './service/transaction.service';
 const routes = [
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path: '**', component: RegistrationComponent}
+  {path: 'category', component: CategoryIndexComponent},
+  {path: '**', component: RegistrationComponent},
 ]
 
 @NgModule({
@@ -77,6 +79,7 @@ const routes = [
     MatInputModule,
     AppRoutingModule,
     MatDividerModule,
+    MatTableModule,
   ],
   providers: [
     AuthService,
