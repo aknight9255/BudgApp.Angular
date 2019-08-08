@@ -8,13 +8,18 @@
         <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
         <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
+        <ng-container matColumnDef="IncomeID">
+            <mat-header-cell *matHeaderCellDef>Note # </mat-header-cell>
+            <mat-cell *matCellDef="let income">{{income.IncomeID}}</mat-cell>
+        </ng-container>
+
         <ng-container matColumnDef="IncomeAmount">
-            <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
             <mat-cell *matCellDef="let income">{{income.IncomeAmount}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="IncomeDate">
-            <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
             <mat-cell *matCellDef="let income">{{income.IncomeDate | date: 'fullDate'}}</mat-cell>
         </ng-container>
 
@@ -25,5 +30,6 @@
                 <i class="material-icons" routerLink="/incomes/delete/{{income.IncomeID}}">delete</i>
             </mat-cell>
         </ng-container>
+
     </mat-table>
 </div>

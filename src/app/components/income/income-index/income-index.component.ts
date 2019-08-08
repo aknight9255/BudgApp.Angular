@@ -10,7 +10,7 @@ import { MatTableDataSource} from '@angular/material';
 })
 export class IncomeIndexComponent implements OnInit {
 
-  columnNames = ['IncomeAmount', 'IncomeDate']
+  columnNames = ['IncomeAmount', 'IncomeDate','buttons']
   dataSource: MatTableDataSource<Income>
   constructor(private _incomeService: IncomeService) { }
 

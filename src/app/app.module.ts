@@ -46,6 +46,7 @@ const routes = [
     path: 'incomes', children: [
       {path: '', component: IncomeIndexComponent },
       {path: 'create', component: IncomeCreateComponent},
+      {path: 'edit', component: IncomeEditComponent},
     ]
   },
   {path: '**', component: RegistrationComponent}

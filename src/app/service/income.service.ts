@@ -13,7 +13,15 @@ getIncomes (){
 }
 
 createIncome(income: Income){
-  return this._http.post(`${Api_Url}/Income`, income, {headers: this.getHeaders()});
+  return this._http.post(`${Api_Url}/Income`, income, {headers: this.getHeaders() });
+}
+
+getIncome(id: string) {
+  return this._http.get(`${Api_Url}/Income/${id}`, { headers: this.getHeaders() });
+}
+
+updateIncome(income: Income) {
+  return this._http.put(`${Api_Url}/Income`, income, { headers: this.getHeaders() });
 }
 
 
