@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Category } from '../models/category';
 
 const ApiUrl = 'https://budgapp.azurewebsites.net/api'
 
@@ -10,6 +11,10 @@ export class CategoryService {
 
   getCategory() {
     return this._http.get(`${ApiUrl}/Category`, { headers: this.getHeaders() });
+  }
+
+  createCategory(category: Category){
+    return this._http.post(`${ApiUrl}/Category`,category , {headers: this.getHeaders() });
   }
 
   private getHeaders() {
