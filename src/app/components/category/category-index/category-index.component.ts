@@ -10,14 +10,15 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class CategoryIndexComponent implements OnInit {
 
-  columnNames = ['details', 'CategoryID', 'CategoryType', 'buttons'];
-  dateSource: MatTableDataSource<Category>;
+  columnNames = ['CategoryID', 'CategoryType', 'buttons'];
+  dataSource: MatTableDataSource<Category>;
 
   constructor(private _categoryService: CategoryService) { }
 
   ngOnInit() {
     this._categoryService.getCategory().subscribe((categories: Category[]) => { // On init, retreives all the categories from the API
-      this.dateSource = new MatTableDataSource<Category>(categories);
+      this.dataSource = new MatTableDataSource<Category>(categories);
+      console.log(categories);
     });
 
   }
