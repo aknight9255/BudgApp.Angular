@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-token',
-  templateUrl: './token.component.html',
-  styleUrls: ['./token.component.css']
-})
-export class TokenComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export interface Token {
+  access_token: string;
+  token_type: string;
+  userName: string;
+  expires_in: number;
+  issued: Date;
+  expires: Date;
 }
