@@ -30,6 +30,11 @@ import { CategoryService} from './service/category.service';
 import { IncomeService} from './service/income.service';
 import { TransactionService } from './service/transaction.service';
 
+const routes = [
+  {path: 'register', component: RegistrationComponent},
+  {path: 'login', component: LoginComponent},
+]
+
 @NgModule({
   declarations: [
     AppComponent,
