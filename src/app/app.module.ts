@@ -9,8 +9,13 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
+
 } from '@angular/material';
-import {MatDividerModule} from '@angular/material/divider';
+
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -24,6 +29,7 @@ import { IncomeCreateComponent } from './components/income/income-create/income-
 import { IncomeDeleteComponent } from './components/income/income-delete/income-delete.component';
 import { IncomeEditComponent } from './components/income/income-edit/income-edit.component';
 import { IncomeIndexComponent } from './components/income/income-index/income-index.component';
+import { Cards } from './components/income/cards/cards.component';
 import { CategoryCreateComponent } from './components/category/category-create/category-create.component';
 import { CategoryDeleteComponent } from './components/category/category-delete/category-delete.component';
 import { CategoryEditComponent } from './components/category/category-edit/category-edit.component';
@@ -71,6 +77,7 @@ const routes = [
     IncomeDeleteComponent,
     IncomeEditComponent,
     IncomeIndexComponent,
+    Cards,
     CategoryCreateComponent,
     CategoryDeleteComponent,
     CategoryEditComponent,
@@ -95,6 +102,9 @@ const routes = [
     AppRoutingModule,
     MatDividerModule,
     MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
   ],
   providers: [
     AuthService,
