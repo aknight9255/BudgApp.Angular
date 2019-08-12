@@ -9,9 +9,13 @@
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field>
-        <input matInput placeholder="IncomeDate" formControlName="IncomeDate" type="IncomeDate" required/>
-      </mat-form-field>
+      
+      <mat-form-field class="example-full-width">
+          <input matInput [matDatepicker]="IncomeDate" formControlName="IncomeDate" placeholder="Choose a date" type="IncomeDate" required>
+          <mat-datepicker-toggle matSuffix [for]="IncomeDate"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #IncomeDate></mat-datepicker>
+        </mat-form-field>
+
     </div>
   </div>
   <button mat-raised-button class="nav-btn" color="primary" type="submit">Add Income</button>

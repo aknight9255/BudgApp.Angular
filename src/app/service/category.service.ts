@@ -23,6 +23,10 @@ export class CategoryService {
   updateCategory(category: Category){
     return this._http.put(`${ApiUrl}/Category`,category , {headers: this.getHeaders() });
   }
+
+  deleteCategory(id: number) {
+    return this._http.delete(`${ApiUrl}/Category/${id}`, { headers: this.getHeaders() });
+  }
   
   private getHeaders() {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);

@@ -5,11 +5,20 @@
 }
 
 .nav-btn { /* All Navbar buttons */
-    margin-right: 0.5em;
     color: rgb(255, 255, 255);
     font-family: 'Nunito', sans-serif;
     font-size: 20px;
     outline: none;
+    height: 100%;
+}
+
+.nav-btn-side { /* Register & Login Buttons position and size */
+    height: auto;
+    margin-right: 0.5em;
+}
+
+.active-class { /* Darker color for when tab is active */
+    background-color: rgb(81, 167, 158);
 }
 
 .nav-btn-raised { /* Login & Register buttons */

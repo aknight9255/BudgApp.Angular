@@ -1,4 +1,4 @@
-<h1>Income Index </h1>
+<app-cards></app-cards>
 
 <a mat-raised-button color="primary" routerLink="/incomes/create"> Create New </a>
 <hr> 
@@ -10,7 +10,7 @@
 
         <ng-container matColumnDef="IncomeAmount">
             <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
-            <mat-cell *matCellDef="let income">{{income.IncomeAmount}}</mat-cell>
+            <mat-cell *matCellDef="let income">$ {{income.IncomeAmount}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="IncomeDate">
