@@ -9,6 +9,7 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
+    MatSelectModule
 } from '@angular/material';
 import {MatDividerModule} from '@angular/material/divider';
 
@@ -57,6 +58,15 @@ const routes = [
     {path: 'delete/:id', component: CategoryDeleteComponent},
   ]
 },
+{
+  path: 'transactions', children: [
+    {path: '', component: TransactionIndexComponent },
+    {path: 'create', component: TransactionCreateComponent},
+    {path: 'edit/:id', component: TransactionEditComponent},
+    {path: 'delete/:id', component: TransactionDeleteComponent},
+  ]
+},
+
   {path: '**', component: RegistrationComponent},
 ]
 
@@ -92,6 +102,7 @@ const routes = [
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
+    MatSelectModule,
     AppRoutingModule,
     MatDividerModule,
     MatTableModule,

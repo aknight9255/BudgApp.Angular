@@ -17,16 +17,17 @@
     </div>
 
     <div>
-            <label for="orders">Category</label>
-            <select formControlName="orders" id="orders">
-              <option *ngFor="let order of orders; let i = index" [value]="orders[i].id">
-                {{orders[i].name}}
-              </option>
-            </select>
+      <mat-form-field>
+          <mat-select formControlName="CategoryID"> 
+              <mat-option *ngFor="let category of categories" value="{{category.CategoryID}}" >
+                {{category.CategoryType}}
+              </mat-option>
+            </mat-select> 
+      </mat-form-field>
     </div>
 
   </div>
   <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Note</button>
 </form>
 
-<a mat-button routerLink="/notes">Back to List</a>
+<a mat-button routerLink="/transactions">Back to List</a>
