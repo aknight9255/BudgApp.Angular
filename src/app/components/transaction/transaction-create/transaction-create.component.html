@@ -1,1 +1,32 @@
-<p>transaction-create works!</p>
+<h1>Create transaction</h1>
+<hr>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="transactionForm">
+  <div>
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="TransactionAmount" formControlName="TransactionAmount" type="TransactionAmount" required/>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="TransactionDate" formControlName="TransactionDate" type="TransactionDate" required/>
+      </mat-form-field>
+    </div>
+
+    <div>
+            <label for="orders">Category</label>
+            <select formControlName="orders" id="orders">
+              <option *ngFor="let order of orders; let i = index" [value]="orders[i].id">
+                {{orders[i].name}}
+              </option>
+            </select>
+    </div>
+
+  </div>
+  <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Note</button>
+</form>
+
+<a mat-button routerLink="/notes">Back to List</a>

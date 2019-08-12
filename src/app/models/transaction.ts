@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-transaction',
-  templateUrl: './transaction.component.html',
-  styleUrls: ['./transaction.component.css']
-})
-export class TransactionComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export interface Transaction {
+  TransactionID?: number;
+  AccountID?: number;
+  CategoryID: number;
+  Category: string;
+  TransactionAmount: number;
+  TransactionDate: Date;
 }
