@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Transaction } from '../models/transaction';
 const Api_Url = 'https://budgapp.azurewebsites.net/api';
+// `${Api_Url}/Transaction?coolDate=${coolDate}`,
+const Api_Local = "https://localhost:44362/api/Transaction?coolDate=12/15/12";
 
 @Injectable()
 export class TransactionService {
@@ -16,8 +18,8 @@ export class TransactionService {
     return this._http.get(`${Api_Url}/Transaction/${id}`, { headers: this.getHeaders() });
   }
 
-  getTransactionByMonth(coolDate: Date){
-    return this._http.put(`${Api_Url}/Transaction/${coolDate}`, { headers: this.getHeaders() });
+  getTransactionByMonth(coolDate: string){
+    return this._http.get(`${Api_Url}/Transaction?coolDate=${coolDate}`, { headers: this.getHeaders() });
   }
 
   createTransaction(transaction: Transaction){
