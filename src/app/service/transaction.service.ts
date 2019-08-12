@@ -16,7 +16,7 @@ export class TransactionService {
     return this._http.get(`${Api_Url}/Transaction/${id}`, { headers: this.getHeaders() });
   }
 
-  putTransaction(coolDate: Date){
+  getTransactionByMonth(coolDate: Date){
     return this._http.put(`${Api_Url}/Transaction/${coolDate}`, { headers: this.getHeaders() });
   }
 
