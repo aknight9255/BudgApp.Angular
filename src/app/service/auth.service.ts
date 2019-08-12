@@ -12,6 +12,7 @@ export class AuthService {
 
   userInfo: Token;
   isLoggedIn = new Subject<boolean>();
+  isAdmin = new Subject<boolean>();
 
 
   constructor(private _http: HttpClient, private _router: Router) { }
