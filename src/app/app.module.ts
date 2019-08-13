@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { HttpClientModule } from '@angular/common/http'
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
 import {
     MatToolbarModule,
     MatButtonModule,
@@ -43,6 +44,7 @@ import {AuthGuard } from './guards/auth.guard';
 import { CategoryService} from './service/category.service';
 import { IncomeService} from './service/income.service';
 import { TransactionService } from './service/transaction.service';
+import { ChartComponent } from './components/category/chart/chart.component';
 
 
 const routes = [
@@ -95,6 +97,7 @@ const routes = [
     TransactionDeleteComponent,
     TransactionEditComponent,
     TransactionIndexComponent,
+    ChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -115,6 +118,7 @@ const routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
+    ChartsModule,
   ],
   providers: [
     AuthService,

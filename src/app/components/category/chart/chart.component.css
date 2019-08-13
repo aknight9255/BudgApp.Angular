@@ -1,0 +1,10 @@
+canvas.chartjs-render-monitor {
+    border: none;
+}
+
+
+element.style {
+    display: block;
+    width: 400px;
+    height: 400px;
+}
