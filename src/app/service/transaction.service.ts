@@ -25,7 +25,7 @@ export class TransactionService {
   }
 
   updateTransaction(transaction: Transaction){
-    return this._http.put(`${Api_Url}/Tranaction`,transaction, { headers: this.getHeaders()});
+    return this._http.put(`${Api_Url}/Transaction`,transaction, { headers: this.getHeaders()});
   }
 
   deleteTransaction(id: number){
