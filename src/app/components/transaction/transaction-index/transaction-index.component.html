@@ -1,4 +1,3 @@
-
 <a mat-raised-button-color="primary" routerLink="/transactions/create">Create New</a>
 <hr>
 
@@ -9,7 +8,7 @@
 
         <ng-container matColumnDef="CategoryType">
             <mat-header-cell *matHeaderCellDef>Category Type</mat-header-cell>
-            <mat-cell *matCellDef="let transaction">{{transaction.CategoryType}}</mat-cell>
+            <mat-cell *matCellDef="let transaction">{{transaction.Category.CategoryType}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="TransactionAmount">
@@ -25,9 +24,9 @@
 
         <ng-container matColumnDef="buttons">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
-            <mat-cell *matCellDef="let note">
-                <i mat-icon class="material-icons" routerLink="/notes/edit/{{note.NoteId}}"> edit </i>
-                <i class="material-icons" routerLink="/notes/delete/{{note.NoteId}}">delete</i>
+            <mat-cell *matCellDef="let transaction">
+                <i mat-icon class="material-icons" routerLink="/transactions/edit/{{transaction.TransactionID}}"> edit </i>
+                <i class="material-icons" routerLink="/transactions/delete/{{transaction.TransactionID}}">delete</i>
             </mat-cell>
         </ng-container>
 
@@ -41,7 +40,7 @@
     
             <ng-container matColumnDef="CategoryType">
                 <mat-header-cell *matHeaderCellDef>Category Type</mat-header-cell>
-                <mat-cell *matCellDef="let transaction">{{transaction.CategoryType}}</mat-cell>
+                <mat-cell *matCellDef="let transaction">{{transaction.Category.CategoryType}}</mat-cell>
             </ng-container>
     
             <ng-container matColumnDef="TransactionAmount">
@@ -57,9 +56,9 @@
     
             <ng-container matColumnDef="buttons">
                 <mat-header-cell *matHeaderCellDef></mat-header-cell>
-                <mat-cell *matCellDef="let note">
-                    <i mat-icon class="material-icons" routerLink="/notes/edit/{{note.NoteId}}"> edit </i>
-                    <i class="material-icons" routerLink="/notes/delete/{{note.NoteId}}">delete</i>
+                <mat-cell *matCellDef="let transaction">
+                        <i mat-icon class="material-icons" routerLink="/transactions/edit/{{transaction.TransactionID}}"> edit </i>
+                        <i class="material-icons" routerLink="/transactions/delete/{{transaction.TransactionID}}">delete</i>
                 </mat-cell>
             </ng-container>
     
@@ -73,7 +72,7 @@
         
                 <ng-container matColumnDef="CategoryType">
                     <mat-header-cell *matHeaderCellDef>Category Type</mat-header-cell>
-                    <mat-cell *matCellDef="let transaction">{{transaction.CategoryType}}</mat-cell>
+                    <mat-cell *matCellDef="let transaction">{{transaction.Category.CategoryType}}</mat-cell>
                 </ng-container>
         
                 <ng-container matColumnDef="TransactionAmount">
@@ -89,9 +88,9 @@
         
                 <ng-container matColumnDef="buttons">
                     <mat-header-cell *matHeaderCellDef></mat-header-cell>
-                    <mat-cell *matCellDef="let note">
-                        <i mat-icon class="material-icons" routerLink="/notes/edit/{{note.NoteId}}"> edit </i>
-                        <i class="material-icons" routerLink="/notes/delete/{{note.NoteId}}">delete</i>
+                    <mat-cell *matCellDef="let transaction">
+                            <i mat-icon class="material-icons" routerLink="/transactions/edit/{{transaction.TransactionID}}"> edit </i>
+                            <i class="material-icons" routerLink="/transactions/delete/{{transaction.TransactionID}}">delete</i>
                     </mat-cell>
                 </ng-container>
         

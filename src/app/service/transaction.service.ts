@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Transaction } from '../models/transaction';
 const Api_Url = 'https://budgapp.azurewebsites.net/api';
-// `${Api_Url}/Transaction?coolDate=${coolDate}`,
-const Api_Local = "https://localhost:44362/api/Transaction?coolDate=12/15/12";
 
 @Injectable()
 export class TransactionService {
@@ -31,7 +29,7 @@ export class TransactionService {
   }
 
   deleteTransaction(id: number){
-    return this._http.delete(`${Api_Url}/Transaction'${id}`, {headers: this.getHeaders() });
+    return this._http.delete(`${Api_Url}/Transaction/${id}`, {headers: this.getHeaders() });
 
   }
 
