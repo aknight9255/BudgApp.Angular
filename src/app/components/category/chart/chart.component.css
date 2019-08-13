@@ -1,0 +1,15 @@
+canvas.chartjs-render-monitor {
+    border: none;
+}
+
+.myChart{
+    width: 950px;
+    height: 500px;
+    text-align: center;
+}
+
+element.style {
+    display: block;
+    width: 400px;
+    height: 400px;
+}

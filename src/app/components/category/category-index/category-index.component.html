@@ -2,6 +2,8 @@
 <a mat-raised-button color="primary" routerLink="/category/create">Create New</a>
 <hr>
 
+<app-chart></app-chart>
+
 <div>
   <mat-table #table [dataSource]="dataSource">
     <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
