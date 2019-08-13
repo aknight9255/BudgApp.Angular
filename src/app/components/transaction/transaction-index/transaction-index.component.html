@@ -1,8 +1,9 @@
+<h1>Transaction History</h1>
+
 <a mat-raised-button-color="primary" routerLink="/transactions/create">Create New</a>
 <hr>
-
 <div>
-    <mat-table #table [dataSource]="dataSourceOne">
+    <mat-table #table [dataSource]="dataSource">
         <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
         <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
@@ -33,7 +34,7 @@
     </mat-table>
 </div>
 
-<div>
+<!-- <div>
         <mat-table #table [dataSource]="dataSourceTwo">
             <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
             <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
@@ -95,4 +96,4 @@
                 </ng-container>
         
             </mat-table>
-        </div>
+        </div> -->
