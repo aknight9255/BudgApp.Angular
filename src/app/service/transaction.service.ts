@@ -16,8 +16,8 @@ export class TransactionService {
     return this._http.get(`${Api_Url}/Transaction/${id}`, { headers: this.getHeaders() });
   }
 
-  getTransactionByMonth(coolDate: Date){
-    return this._http.put(`${Api_Url}/Transaction/${coolDate}`, { headers: this.getHeaders() });
+  getTransactionByMonth(coolDate: string){
+    return this._http.get(`${Api_Url}/Transaction?coolDate=${coolDate}`, { headers: this.getHeaders() });
   }
 
   createTransaction(transaction: Transaction){
@@ -29,7 +29,7 @@ export class TransactionService {
   }
 
   deleteTransaction(id: number){
-    return this._http.delete(`${Api_Url}/Transaction'${id}`, {headers: this.getHeaders() });
+    return this._http.delete(`${Api_Url}/Transaction/${id}`, {headers: this.getHeaders() });
 
   }
 
