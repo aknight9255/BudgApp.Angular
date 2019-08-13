@@ -24,12 +24,29 @@ export class AuthService {
   login(loginInfo) {
     const str = `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
 
-    return this._http.post(`${Api_Url}/token`, str).subscribe( (token: Token) => {
-      this.userInfo = token;
-      localStorage.setItem('id_token', token.access_token);
-      this. isLoggedIn.next(true);
-      this._router.navigate(['/incomes']);
-    });
+    if (loginInfo.email == "admin@admin.admin" && loginInfo.password == "Admin1!")
+    {
+      return this._http.post(`${Api_Url}/token`, str).subscribe( (token: Token) => {
+        this.userInfo = token;
+        localStorage.setItem('id_token', token.access_token);
+        this. isLoggedIn.next(true);
+        this.isAdmin.next(true);
+        console.log("Eyyy lmao");
+        this._router.navigate(['/incomes']);
+      });
+    }
+    else 
+    {
+      return this._http.post(`${Api_Url}/token`, str).subscribe( (token: Token) => {
+        this.userInfo = token;
+        localStorage.setItem('id_token', token.access_token);
+        this. isLoggedIn.next(true);
+        this.isAdmin.next(false);
+        this._router.navigate(['/incomes']);
+      });
+    }
+
+    
   }
   currentUser(): Observable<Object> {
     if (!localStorage.getItem('if_token')) {return new Observable(observer => observer.next(false)); }
