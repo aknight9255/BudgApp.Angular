@@ -1,6 +1,6 @@
 <!-- Cards for the 3 different month's budget -->
 <ul>
-        <li><mat-card class="hello"><mat-card-title>August</mat-card-title></mat-card></li>
-        <li><mat-card class="hello"><mat-card-title>September</mat-card-title></mat-card></li>
-        <li><mat-card class="hello"><mat-card-title>October</mat-card-title></mat-card></li>
+        <li><mat-card class="card"><mat-card-title>{{today | date: 'MMMM'}}</mat-card-title></mat-card></li>
+        <li><mat-card class="card"><mat-card-title>{{fullDateMonthTwo | date: 'MMMM'}}</mat-card-title></mat-card></li>
+        <li><mat-card class="card"><mat-card-title>{{fullDateMonthThree | date: 'MMMM'}}</mat-card-title></mat-card></li>
 </ul>

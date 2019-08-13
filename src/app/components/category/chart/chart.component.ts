@@ -14,10 +14,27 @@ export class ChartComponent implements OnInit {
     backgroundColor: 'rgb(255, 99, 132)',
     borderColor: 'rgb(255, 99, 132)',
     data: [0, 10, 5, 2, 20, 30, 45]
-}]
+
+  }]
+//       function addData(chart, label, data) {
+//         chart.data.labels.push(label),
+//         chart.data.datasets.forEach((dataset) => {
+//             dataset.data.push(data),
+//         });
+//         chart.update(),
+  
+//   function removeData(chart) {
+//       chart.data.labels.pop();
+//       chart.data.datasets.forEach((dataset) => {
+//           dataset.data.pop();
+//       });
+//       chart.update();
+//   }
+// }];
 
   ngOnInit() {
     
   }
+
 
 }
