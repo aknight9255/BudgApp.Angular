@@ -44,7 +44,7 @@ import { CategoryService} from './service/category.service';
 import { IncomeService} from './service/income.service';
 import { TransactionService } from './service/transaction.service';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
-import { AdminModule } from './admin/admin.module';
+//import { AdminModule } from './admin/admin.module';
 
 
 const routes = [
@@ -98,7 +98,7 @@ const routes = [
     TransactionEditComponent,
     TransactionIndexComponent,
     AdminDashboardComponent,
-    AdminModule
+    //AdminModule
   ],
   imports: [
     BrowserModule,
