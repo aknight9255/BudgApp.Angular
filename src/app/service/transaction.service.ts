@@ -28,6 +28,11 @@ export class TransactionService {
     return this._http.put(`${Api_Url}/Transaction`,transaction, { headers: this.getHeaders()});
   }
 
+  pullBalance(monthKey: string){
+    return this._http.get(`${Api_Url}/Transaction/GetBalance?monthKey=${monthKey}`, { headers: this.getHeaders() });
+
+  }
+
   deleteTransaction(id: number){
     return this._http.delete(`${Api_Url}/Transaction/${id}`, {headers: this.getHeaders() });
 
