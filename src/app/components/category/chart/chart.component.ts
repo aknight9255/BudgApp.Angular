@@ -31,7 +31,7 @@ transactions: Transaction[]=[];
     datasets: [
       { y: this.transactionData, label: "Bills" },
     ]
-}]
+  }]
 
  getRandomColor() {
   var letters = '7777756789ABCDEF'.split('');
@@ -50,5 +50,6 @@ transactions: Transaction[]=[];
     })
 
   }
+
 
 }

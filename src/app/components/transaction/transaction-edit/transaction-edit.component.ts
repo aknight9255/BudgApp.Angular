@@ -3,7 +3,8 @@ import { Transaction } from 'src/app/models/transaction';
 import { TransactionService } from 'src/app/service/transaction.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
+import { CategoryService } from 'src/app/service/category.service';
+import { Category } from 'src/app/models/category';
 
 @Component({
   selector: 'app-transaction-edit',
@@ -12,37 +13,45 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 })
 export class TransactionEditComponent implements OnInit {
   transaction: Transaction;
-  
+  categories: Category[] = [];
+
   editTransactionForm: FormGroup;
   constructor(private _form: FormBuilder,
-              private _transactionService: TransactionService,
-              private _ar: ActivatedRoute,
-              private _router: Router) {
-                this._ar.paramMap.subscribe(p => {
-                  this._transactionService.getTransaction(p.get('id')).subscribe((singleTransaction: Transaction) => {
-                    this.transaction = singleTransaction;
-                    this.createForm();
-                  });
-                });
-               }
-
-  ngOnInit() {
+    private _transactionService: TransactionService,
+    private _ar: ActivatedRoute,
+    private _router: Router,
+    private _categoryService: CategoryService) {
+    this._ar.paramMap.subscribe(p => {
+      this._transactionService.getTransaction(p.get('id')).subscribe((singleTransaction: Transaction) => {
+        this.transaction = singleTransaction;
+        this.createForm();
+      });
+    });
   }
 
-  createForm(){
+  ngOnInit() {
+    this._categoryService.getCategories().subscribe(e => {
+      for (let i = 0; i < e.length; i++) {
+        this.categories.push(e[i]);
+      }
+      console.log(this.categories);
+    });
+  }
+
+  createForm() {
     this.editTransactionForm = this._form.group({
       TransactionID: new FormControl(this.transaction.TransactionID),
       TransactionAmount: new FormControl(this.transaction.TransactionAmount),
       TransactionDate: new FormControl(this.transaction.TransactionDate),
-      CategoryID: new FormControl(this.transaction.CategoryID) 
+      CategoryID: new FormControl(this.transaction.CategoryID)
     });
   }
 
-  onSubmit(form){
+  onSubmit(form) {
     const updateTransaction: Transaction = {
       TransactionID: form.value.TransactionID,
-      TransactionAmount: form.vaule.TransactionAmount,
-      TransactionDate: form.vaule.TransactionDate,
+      TransactionAmount: form.value.TransactionAmount,
+      TransactionDate: form.value.TransactionDate,
       CategoryID: form.value.CategoryID,
       Category: form.value.Category,
     };

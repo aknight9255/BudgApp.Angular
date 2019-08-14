@@ -28,7 +28,6 @@ export class TransactionCreateComponent implements OnInit {
         this.categories.push(e[i]);
       }
       console.log(this.categories);
-      //console.log(e);
     });
   }
 
