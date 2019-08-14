@@ -14,6 +14,9 @@ import {
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
+    MatGridListModule,
+    MatPaginatorModule,
+    MatSortModule,
 } from '@angular/material';
 
 import { MatDividerModule } from '@angular/material/divider';
@@ -45,20 +48,22 @@ import { CategoryService} from './service/category.service';
 import { IncomeService} from './service/income.service';
 import { TransactionService } from './service/transaction.service';
 import { ChartComponent } from './components/category/chart/chart.component';
+import { HistoryComponent } from './components/history/history.component';
 
 
 const routes = [
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'history', component: HistoryComponent},
   {
-    path: 'incomes', children: [
+    path: 'incomes', canActivate: [AuthGuard], children: [
       {path: '', component: IncomeIndexComponent },
       {path: 'create', component: IncomeCreateComponent},
       {path: 'edit/:id', component: IncomeEditComponent},
       {path: 'delete/:id', component: IncomeDeleteComponent},
     ]
   },
-  {path: 'category', children: [
+  {path: 'category', canActivate: [AuthGuard], children: [
     {path: '', component: CategoryIndexComponent},
     {path: 'create', component: CategoryCreateComponent},
     {path: 'edit/:id', component: CategoryEditComponent},
@@ -66,7 +71,7 @@ const routes = [
   ]
 },
 {
-  path: 'transactions', children: [
+  path: 'transactions', canActivate: [AuthGuard], children: [
     {path: '', component: TransactionIndexComponent },
     {path: 'create', component: TransactionCreateComponent},
     {path: 'edit/:id', component: TransactionEditComponent},
@@ -98,6 +103,7 @@ const routes = [
     TransactionEditComponent,
     TransactionIndexComponent,
     ChartComponent,
+    HistoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -118,6 +124,9 @@ const routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
+    MatGridListModule,
+    MatPaginatorModule,
+    MatSortModule,
     ChartsModule,
   ],
   providers: [
