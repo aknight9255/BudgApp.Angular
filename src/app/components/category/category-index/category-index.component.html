@@ -1,6 +1,5 @@
-<h1>Overview</h1>
-<a mat-raised-button color="primary" routerLink="/category/create">Create New</a>
-<hr>
+<br>
+<a mat-raised-button color="primary" routerLink="/category/create">Add Category</a>
 
 <app-chart></app-chart>
 
@@ -12,7 +11,7 @@
     <ng-container matColumnDef="CategoryID">
       <mat-header-cell *matHeaderCellDef> Category ID </mat-header-cell>
       <mat-cell *matCellDef="let category"> {{category.CategoryID}} </mat-cell>
-    </ng-container>
+    </ng-container><!-- REMEMBER TO HIDE THIS CHASE-->
 
     <ng-container matColumnDef="CategoryType">
       <mat-header-cell *matHeaderCellDef> Category Type </mat-header-cell>
