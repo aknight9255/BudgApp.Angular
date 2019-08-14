@@ -5,6 +5,8 @@
     <button mat-button class="nav-btn" routerLink="/incomes" routerLinkActive="active-class">Wallet</button>
     <button mat-button class="nav-btn" routerLink="/transactions" routerLinkActive="active-class">Transaction</button>
     <button mat-button class="nav-btn" routerLink="/category" routerLinkActive="active-class">Overview</button>
+    <button *ngIf="IsAdmin" mat-button class="nav-btn" routerLink="/admin-dashboard" routerLinkActive="active-class">Admin</button>
+
     <span class="example-fill-remaining-space"></span>
   
     <button mat-raised-button class="nav-btn nav-btn-raised nav-btn-side" routerLink="/register">Register</button>

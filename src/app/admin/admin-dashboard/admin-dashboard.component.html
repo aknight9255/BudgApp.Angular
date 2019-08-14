@@ -1,1 +1,8 @@
-<h3>DASHBOARD</h3>
+<h3>ADMIN</h3>
+<nav>
+  <a routerLink="./" routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+  <a routerLink="/incomes" routerLinkActive="active">Manage Income</a>
+  <a routerLink="/transactions" routerLinkActive="active">Manage Transactions</a>
+</nav>
+<router-outlet></router-outlet>
