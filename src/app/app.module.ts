@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
@@ -43,44 +43,52 @@ import { TransactionDeleteComponent } from './components/transaction/transaction
 import { TransactionEditComponent } from './components/transaction/transaction-edit/transaction-edit.component';
 import { TransactionIndexComponent } from './components/transaction/transaction-index/transaction-index.component';
 
-import {AuthGuard } from './guards/auth.guard';
-import { CategoryService} from './service/category.service';
-import { IncomeService} from './service/income.service';
+import { AuthGuard } from './guards/auth.guard';
+import { CategoryService } from './service/category.service';
+import { IncomeService } from './service/income.service';
 import { TransactionService } from './service/transaction.service';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminModule } from './admin/admin.module';
 import { ChartComponent } from './components/category/chart/chart.component';
+
+import { AdminGuard } from './guards/admin.guard';
+
 import { HistoryComponent } from './components/history/history.component';
+// const routes: Routes = [
+//   { path: 'register', component: RegistrationComponent },
+//   { path: 'login', component: LoginComponent },
+//   {
+//     path: 'incomes', children: [
+//       { path: '', component: IncomeIndexComponent },
+//       { path: 'create', component: IncomeCreateComponent },
+//       { path: 'edit/:id', component: IncomeEditComponent },
+//       { path: 'delete/:id', component: IncomeDeleteComponent },
+//     ]
+//   },
+//   {
+//     path: 'category', children: [
+//       { path: '', component: CategoryIndexComponent },
+//       { path: 'create', component: CategoryCreateComponent },
+//       { path: 'edit/:id', component: CategoryEditComponent },
+//       { path: 'delete/:id', component: CategoryDeleteComponent },
+//     ]
+//   },
+//   {
+//     path: 'transactions', children: [
+//       { path: '', component: TransactionIndexComponent },
+//       { path: 'create', component: TransactionCreateComponent },
+//       { path: 'edit/:id', component: TransactionEditComponent },
+//       { path: 'delete/:id', component: TransactionDeleteComponent },
+//     ]
+//   },
+//   { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] },
+//   { path: '**', component: RegistrationComponent },
+// ]
 
 
-const routes = [
-  {path: 'register', component: RegistrationComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'history', component: HistoryComponent},
-  {
-    path: 'incomes', canActivate: [AuthGuard], children: [
-      {path: '', component: IncomeIndexComponent },
-      {path: 'create', component: IncomeCreateComponent},
-      {path: 'edit/:id', component: IncomeEditComponent},
-      {path: 'delete/:id', component: IncomeDeleteComponent},
-    ]
-  },
-  {path: 'category', canActivate: [AuthGuard], children: [
-    {path: '', component: CategoryIndexComponent},
-    {path: 'create', component: CategoryCreateComponent},
-    {path: 'edit/:id', component: CategoryEditComponent},
-    {path: 'delete/:id', component: CategoryDeleteComponent},
-  ]
-},
-{
-  path: 'transactions', canActivate: [AuthGuard], children: [
-    {path: '', component: TransactionIndexComponent },
-    {path: 'create', component: TransactionCreateComponent},
-    {path: 'edit/:id', component: TransactionEditComponent},
-    {path: 'delete/:id', component: TransactionDeleteComponent},
-  ]
-},
 
-  {path: '**', component: RegistrationComponent},
-]
+
+
 
 @NgModule({
   declarations: [
@@ -102,6 +110,7 @@ const routes = [
     TransactionDeleteComponent,
     TransactionEditComponent,
     TransactionIndexComponent,
+    AdminDashboardComponent,
     ChartComponent,
     HistoryComponent,
   ],
@@ -110,7 +119,7 @@ const routes = [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes),
+    //RouterModule.forRoot(routes),
     HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
@@ -124,6 +133,7 @@ const routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
+    AdminModule,
     MatGridListModule,
     MatPaginatorModule,
     MatSortModule,
@@ -135,6 +145,7 @@ const routes = [
     IncomeService,
     TransactionService,
     AuthGuard,
+    AdminGuard
   ],
   bootstrap: [AppComponent]
 })
