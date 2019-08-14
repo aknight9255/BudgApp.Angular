@@ -1,6 +1,107 @@
 <!-- Cards for the 3 different month's budget -->
 <ul>
-        <li><mat-card class="card"><mat-card-title>{{today | date: 'MMMM'}}</mat-card-title></mat-card></li>
-        <li><mat-card class="card"><mat-card-title>{{fullDateMonthTwo | date: 'MMMM'}}</mat-card-title></mat-card></li>
-        <li><mat-card class="card"><mat-card-title>{{fullDateMonthThree | date: 'MMMM'}}</mat-card-title></mat-card></li>
+        <li><mat-card class="card"><mat-card-title>{{today | date: 'MMMM'}}</mat-card-title>
+                <div>
+                <mat-table #table [dataSource]="dataSourceOne">
+                                <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+                        
+                                <ng-container matColumnDef="CategoryType">
+                                    <mat-header-cell *matHeaderCellDef>Category Type</mat-header-cell>
+                                    <mat-cell *matCellDef="let transaction">{{transaction.Category.CategoryType}}</mat-cell>
+                                </ng-container>
+                        
+                                <ng-container matColumnDef="TransactionAmount">
+                                    <mat-header-cell *matHeaderCellDef>Transaction Amount</mat-header-cell>
+                                    <mat-cell *matCellDef="let transaction">$ {{transaction.TransactionAmount}}</mat-cell>
+                                </ng-container>
+                        
+                        
+                                <ng-container matColumnDef="TransactionDate">
+                                        <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+                                        <mat-cell *matCellDef="let transaction">{{transaction.TransactionDate | date: 'fullDate'}}</mat-cell>
+                                </ng-container>
+                        
+                                <ng-container matColumnDef="buttons">
+                                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                                    <mat-cell *matCellDef="let transaction">
+                                        <i mat-icon class="material-icons" routerLink="/transactions/edit/{{transaction.TransactionID}}"> edit </i>
+                                        <i class="material-icons" routerLink="/transactions/delete/{{transaction.TransactionID}}">delete</i>
+                                    </mat-cell>
+                                </ng-container>
+                        
+                            </mat-table>
+                        </div>
+                        <div>
+                            <p>{{balanceOne}}</p>
+                        </div>
+        </mat-card></li>
+        <li><mat-card class="card"><mat-card-title>{{fullDateMonthTwo | date: 'MMMM'}}</mat-card-title>
+                <mat-table #table [dataSource]="dataSourceTwo">
+                                <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+                        
+                                <ng-container matColumnDef="CategoryType">
+                                    <mat-header-cell *matHeaderCellDef>Category Type</mat-header-cell>
+                                    <mat-cell *matCellDef="let transaction">{{transaction.Category.CategoryType}}</mat-cell>
+                                </ng-container>
+                        
+                                <ng-container matColumnDef="TransactionAmount">
+                                    <mat-header-cell *matHeaderCellDef>Transaction Amount</mat-header-cell>
+                                    <mat-cell *matCellDef="let transaction">$ {{transaction.TransactionAmount}}</mat-cell>
+                                </ng-container>
+                        
+                        
+                                <ng-container matColumnDef="TransactionDate">
+                                        <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+                                        <mat-cell *matCellDef="let transaction">{{transaction.TransactionDate | date: 'fullDate'}}</mat-cell>
+                                </ng-container>
+                        
+                                <ng-container matColumnDef="buttons">
+                                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                                    <mat-cell *matCellDef="let transaction">
+                                            <i mat-icon class="material-icons" routerLink="/transactions/edit/{{transaction.TransactionID}}"> edit </i>
+                                            <i class="material-icons" routerLink="/transactions/delete/{{transaction.TransactionID}}">delete</i>
+                                    </mat-cell>
+                                </ng-container>
+                        
+                            </mat-table>
+                            <div>
+                                    <p>{{balanceTwo}}</p>
+                                </div>
+        </mat-card></li>
+        <li><mat-card class="card"><mat-card-title>{{fullDateMonthThree | date: 'MMMM'}}</mat-card-title>
+                <mat-table #table [dataSource]="dataSourceThree">
+                                <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+                        
+                                <ng-container matColumnDef="CategoryType">
+                                    <mat-header-cell *matHeaderCellDef>Category Type</mat-header-cell>
+                                    <mat-cell *matCellDef="let transaction">{{transaction.Category.CategoryType}}</mat-cell>
+                                </ng-container>
+                        
+                                <ng-container matColumnDef="TransactionAmount">
+                                    <mat-header-cell *matHeaderCellDef>Transaction Amount</mat-header-cell>
+                                    <mat-cell *matCellDef="let transaction">$ {{transaction.TransactionAmount}}</mat-cell>
+                                </ng-container>
+                        
+                        
+                                <ng-container matColumnDef="TransactionDate">
+                                        <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+                                        <mat-cell *matCellDef="let transaction">{{transaction.TransactionDate | date: 'fullDate'}}</mat-cell>
+                                </ng-container>
+                        
+                                <ng-container matColumnDef="buttons">
+                                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                                    <mat-cell *matCellDef="let transaction">
+                                            <i mat-icon class="material-icons" routerLink="/transactions/edit/{{transaction.TransactionID}}"> edit </i>
+                                            <i class="material-icons" routerLink="/transactions/delete/{{transaction.TransactionID}}">delete</i>
+                                    </mat-cell>
+                                </ng-container>
+                        
+                            </mat-table>
+                            <div>
+                                    <p>{{balanceThree}}</p>
+                                </div>
+        </mat-card></li>
 </ul>

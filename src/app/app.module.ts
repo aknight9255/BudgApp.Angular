@@ -5,15 +5,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 import {
-  MatToolbarModule,
-  MatButtonModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatTableModule,
-  MatSelectModule,
-  MatDatepickerModule,
-  MatNativeDateModule,
-  MatCardModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
+    MatGridListModule,
+    MatPaginatorModule,
+    MatSortModule,
 } from '@angular/material';
 
 import { MatDividerModule } from '@angular/material/divider';
@@ -47,9 +50,10 @@ import { TransactionService } from './service/transaction.service';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminModule } from './admin/admin.module';
 import { ChartComponent } from './components/category/chart/chart.component';
+
 import { AdminGuard } from './guards/admin.guard';
 
-
+import { HistoryComponent } from './components/history/history.component';
 // const routes: Routes = [
 //   { path: 'register', component: RegistrationComponent },
 //   { path: 'login', component: LoginComponent },
@@ -81,6 +85,11 @@ import { AdminGuard } from './guards/admin.guard';
 //   { path: '**', component: RegistrationComponent },
 // ]
 
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,6 +112,7 @@ import { AdminGuard } from './guards/admin.guard';
     TransactionIndexComponent,
     AdminDashboardComponent,
     ChartComponent,
+    HistoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -124,7 +134,9 @@ import { AdminGuard } from './guards/admin.guard';
     MatNativeDateModule,
     MatCardModule,
     AdminModule,
-
+    MatGridListModule,
+    MatPaginatorModule,
+    MatSortModule,
     ChartsModule,
   ],
   providers: [
