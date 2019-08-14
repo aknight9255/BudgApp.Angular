@@ -3,23 +3,23 @@
 <a mat-raised-button-color="primary" routerLink="/transactions/create">Create New</a>
 <hr>
 <div>
-    <mat-table #table [dataSource]="dataSource">
+    <mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
         <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
         <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
         <ng-container matColumnDef="CategoryType">
-            <mat-header-cell *matHeaderCellDef>Category Type</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Category Type</mat-header-cell>
             <mat-cell *matCellDef="let transaction">{{transaction.Category.CategoryType}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="TransactionAmount">
-            <mat-header-cell *matHeaderCellDef>Transaction Amount</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Transaction Amount</mat-header-cell>
             <mat-cell *matCellDef="let transaction">$ {{transaction.TransactionAmount}}</mat-cell>
         </ng-container>
 
 
         <ng-container matColumnDef="TransactionDate">
-                <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Created </mat-header-cell>
                 <mat-cell *matCellDef="let transaction">{{transaction.TransactionDate | date: 'fullDate'}}</mat-cell>
         </ng-container>
 
