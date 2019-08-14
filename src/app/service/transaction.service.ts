@@ -33,6 +33,11 @@ export class TransactionService {
 
   }
 
+  pullChartData(): any{
+    return this._http.get(`${Api_Url}/Transaction/GetChartData`, { headers: this.getHeaders() });
+
+  }
+
   deleteTransaction(id: number){
     return this._http.delete(`${Api_Url}/Transaction/${id}`, {headers: this.getHeaders() });
 

@@ -17,6 +17,7 @@ import {
     MatGridListModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTabsModule,
 } from '@angular/material';
 
 import { MatDividerModule } from '@angular/material/divider';
@@ -137,6 +138,7 @@ import { HistoryComponent } from './components/history/history.component';
     MatGridListModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTabsModule,
     ChartsModule,
   ],
   providers: [
