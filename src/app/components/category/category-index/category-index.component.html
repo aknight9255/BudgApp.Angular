@@ -8,16 +8,19 @@
     <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
+<div hidden>
     <ng-container matColumnDef="CategoryID">
       <mat-header-cell *matHeaderCellDef> Category ID </mat-header-cell>
       <mat-cell *matCellDef="let category"> {{category.CategoryID}} </mat-cell>
     </ng-container><!-- REMEMBER TO HIDE THIS CHASE-->
-
+</div>
+<div>
     <ng-container matColumnDef="CategoryType">
       <mat-header-cell *matHeaderCellDef> Category Type </mat-header-cell>
       <mat-cell *matCellDef="let category"> {{category.CategoryType}} </mat-cell>
     </ng-container>
-
+</div>
+<div>
     <ng-container matColumnDef="buttons">
       <mat-header-cell *matHeaderCellDef> </mat-header-cell>
       <mat-cell *matCellDef="let category">
@@ -25,6 +28,6 @@
         <i class="material-icons" routerLink="/category/delete/{{category.CategoryID}}">delete</i>
       </mat-cell>
     </ng-container>
-
+</div>
   </mat-table>
 </div>

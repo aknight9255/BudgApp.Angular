@@ -53,7 +53,7 @@ export class TransactionEditComponent implements OnInit {
       TransactionAmount: form.value.TransactionAmount,
       TransactionDate: form.value.TransactionDate,
       CategoryID: form.value.CategoryID,
-      Category: form.value.Category,
+      CategoryType: form.value.CategoryType
     };
     this._transactionService.updateTransaction(updateTransaction).subscribe(d => {
       this._router.navigate(['/transactions'])
