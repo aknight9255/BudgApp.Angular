@@ -32,7 +32,7 @@ export class AuthService {
         this.isLoggedIn.next(true);
         this.isAdmin = true;
         console.log("Eyyy lmao");
-        this._router.navigate(['/income']);
+        this._router.navigate(['/incomess']);
       });
     }
     else {
@@ -41,7 +41,7 @@ export class AuthService {
         localStorage.setItem('id_token', token.access_token);
         this.isLoggedIn.next(true);
         this.isAdmin = false;
-        this._router.navigate(['/income']);
+        this._router.navigate(['/incomes']);
       });
     }
 

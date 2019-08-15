@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class CategoryIndexComponent implements OnInit {
 
-  columnNames = ['CategoryID', 'CategoryType', 'buttons'];
+  columnNames = ['CategoryType', 'buttons'];
   dataSource: MatTableDataSource<Category>;
 
   constructor(private _categoryService: CategoryService) { }
