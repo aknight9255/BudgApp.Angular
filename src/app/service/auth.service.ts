@@ -4,8 +4,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Token } from '../models/token';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { APIURL } from 'src/environments/environment.prod';
 
-const Api_Url = 'https://budgapp.azurewebsites.net';
+// const Api_Url = 'https://budgapp.azurewebsites.net';
 
 @Injectable()
 export class AuthService {
@@ -18,14 +19,14 @@ export class AuthService {
   constructor(private _http: HttpClient, private _router: Router) { }
 
   register(regUserData: RegisterUser) {
-    return this._http.post(`${Api_Url}/api/Account/Register`, regUserData);
+    return this._http.post(`${APIURL}/api/Account/Register`, regUserData);
   }
 
   login(loginInfo) {
     const str = `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
 
     if (loginInfo.email == "admin@admin.admin" && loginInfo.password == "Admin1!") {
-      return this._http.post(`${Api_Url}/token`, str).subscribe((token: Token) => {
+      return this._http.post(`${APIURL}/token`, str).subscribe((token: Token) => {
         this.userInfo = token;
         localStorage.setItem('id_token', token.access_token);
         this.isLoggedIn.next(true);
@@ -35,7 +36,7 @@ export class AuthService {
       });
     }
     else {
-      return this._http.post(`${Api_Url}/token`, str).subscribe((token: Token) => {
+      return this._http.post(`${APIURL}/token`, str).subscribe((token: Token) => {
         this.userInfo = token;
         localStorage.setItem('id_token', token.access_token);
         this.isLoggedIn.next(true);
@@ -51,14 +52,14 @@ export class AuthService {
 
     const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
 
-    return this._http.get(`${Api_Url}/api/Account/UserInfo`, { headers: authHeader });
+    return this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: authHeader });
 
   }
   logout(): Observable<Object> {
     localStorage.clear();
     this.isLoggedIn.next(false);
 
-    return this._http.post(`${Api_Url}/api/Account/Logout`, { headers: this.setHeader() });
+    return this._http.post(`${APIURL}/api/Account/Logout`, { headers: this.setHeader() });
   }
   
   // isAuthed(): boolean {
