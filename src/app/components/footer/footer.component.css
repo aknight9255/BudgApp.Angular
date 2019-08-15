@@ -1,0 +1,26 @@
+.footer{ /*footer elements*/
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color:black;
+    text-align: center;
+    padding: 15px;   
+}
+
+.footer-text{/*set the parameters to footer-text*/
+    font-family: 'Nunito', sans-serif;
+    font-size: 17px;
+    color: #a8a4a4;
+    margin: 0px;
+}
+
+.footer-icon{
+    width: 40px;
+    height: 40px;
+}
+
+.divider{/*seperates the footer from the body*/
+    padding: 10px;
+    width: 50%;
+    margin-left: 25%;
+}

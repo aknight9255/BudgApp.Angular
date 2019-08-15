@@ -1,16 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
+import {
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
+    MatGridListModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTabsModule,
+} from '@angular/material';
+
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { AuthService } from './service/auth.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { IncomeCreateComponent } from './components/income/income-create/income-create.component';
 import { IncomeDeleteComponent } from './components/income/income-delete/income-delete.component';
 import { IncomeEditComponent } from './components/income/income-edit/income-edit.component';
 import { IncomeIndexComponent } from './components/income/income-index/income-index.component';
+import { Cards } from './components/income/cards/cards.component';
 import { CategoryCreateComponent } from './components/category/category-create/category-create.component';
 import { CategoryDeleteComponent } from './components/category/category-delete/category-delete.component';
 import { CategoryEditComponent } from './components/category/category-edit/category-edit.component';
@@ -19,18 +43,54 @@ import { TransactionCreateComponent } from './components/transaction/transaction
 import { TransactionDeleteComponent } from './components/transaction/transaction-delete/transaction-delete.component';
 import { TransactionEditComponent } from './components/transaction/transaction-edit/transaction-edit.component';
 import { TransactionIndexComponent } from './components/transaction/transaction-index/transaction-index.component';
-import { RegisterUserComponent } from './models/register-user';
-import { AuthService } from './service/auth.service';
-import { TokenComponent } from './models/token';
-import { UserInfoComponent } from './models/user-info';
-import { IncomeComponent } from './models/income';
-import { CategoryComponent } from './models/category';
-import { TransactionComponent } from './models/transaction';
 
-import {AuthGuard } from './guards/auth.guard';
-import { CategoryService} from './service/category.service';
-import { IncomeService} from './service/income.service';
+import { AuthGuard } from './guards/auth.guard';
+import { CategoryService } from './service/category.service';
+import { IncomeService } from './service/income.service';
 import { TransactionService } from './service/transaction.service';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminModule } from './admin/admin.module';
+import { ChartComponent } from './components/category/chart/chart.component';
+
+import { AdminGuard } from './guards/admin.guard';
+
+import { HistoryComponent } from './components/history/history.component';
+import { AboutComponent } from './components/about/about.component';
+// const routes: Routes = [
+//   { path: 'register', component: RegistrationComponent },
+//   { path: 'login', component: LoginComponent },
+//   {
+//     path: 'incomes', children: [
+//       { path: '', component: IncomeIndexComponent },
+//       { path: 'create', component: IncomeCreateComponent },
+//       { path: 'edit/:id', component: IncomeEditComponent },
+//       { path: 'delete/:id', component: IncomeDeleteComponent },
+//     ]
+//   },
+//   {
+//     path: 'category', children: [
+//       { path: '', component: CategoryIndexComponent },
+//       { path: 'create', component: CategoryCreateComponent },
+//       { path: 'edit/:id', component: CategoryEditComponent },
+//       { path: 'delete/:id', component: CategoryDeleteComponent },
+//     ]
+//   },
+//   {
+//     path: 'transactions', children: [
+//       { path: '', component: TransactionIndexComponent },
+//       { path: 'create', component: TransactionCreateComponent },
+//       { path: 'edit/:id', component: TransactionEditComponent },
+//       { path: 'delete/:id', component: TransactionDeleteComponent },
+//     ]
+//   },
+//   { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] },
+//   { path: '**', component: RegistrationComponent },
+// ]
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -43,6 +103,7 @@ import { TransactionService } from './service/transaction.service';
     IncomeDeleteComponent,
     IncomeEditComponent,
     IncomeIndexComponent,
+    Cards,
     CategoryCreateComponent,
     CategoryDeleteComponent,
     CategoryEditComponent,
@@ -51,16 +112,36 @@ import { TransactionService } from './service/transaction.service';
     TransactionDeleteComponent,
     TransactionEditComponent,
     TransactionIndexComponent,
-    RegisterUserComponent,
-    TokenComponent,
-    UserInfoComponent,
-    IncomeComponent,
-    CategoryComponent,
-    TransactionComponent
+    AdminDashboardComponent,
+    ChartComponent,
+    HistoryComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    //RouterModule.forRoot(routes),
+    HttpClientModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatSelectModule,
+    AppRoutingModule,
+    MatDividerModule,
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
+    AdminModule,
+    MatGridListModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTabsModule,
+    ChartsModule,
   ],
   providers: [
     AuthService,
@@ -68,6 +149,7 @@ import { TransactionService } from './service/transaction.service';
     IncomeService,
     TransactionService,
     AuthGuard,
+    AdminGuard
   ],
   bootstrap: [AppComponent]
 })

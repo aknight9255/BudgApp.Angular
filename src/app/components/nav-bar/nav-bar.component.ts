@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AdminGuard } from '../../guards/admin.guard';
+import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from 'src/app/service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  IsAdmin: boolean;
+  username: string;
+  isLoggedIn: boolean;
+  constructor(private auth: AdminGuard,private authService: AuthService, private _router: Router) { }
 
   ngOnInit() {
-  }
+    if(this.auth.canActivate() == true){
+      this.IsAdmin=true;
 
+     }
+     else{
+       this.IsAdmin=false;
+     }
+        this.authService.isLoggedIn.subscribe((loggedInUserStatus: boolean) =>{
+      console.log(loggedInUserStatus);
+      this.isLoggedIn = loggedInUserStatus;
+  });
+  }
+  
+  onLoggout() {
+  this.authService.logout();
+  this.isLoggedIn = false;
+  this._router.navigate(['/login']);
+}
+
+}
+export interface UserData  {
+  user: string;
+  isloggedin: boolean;
 }

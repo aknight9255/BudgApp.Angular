@@ -1,0 +1,136 @@
+
+<mat-tab-group>
+        <mat-tab label="Transaction History">
+             <div class="tableOne">
+                    <h2>Transaction History</h2>
+                    <mat-table #table [dataSource]="dataSourceTransaction" matSort class="mat-elevation-z8">
+                            <mat-header-row *matHeaderRowDef="columnNamesTransaction; sticky: true"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: columnNamesTransaction;"></mat-row>
+                    
+                            <ng-container matColumnDef="CategoryType">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header>Category Type</mat-header-cell>
+                                <mat-cell *matCellDef="let transaction">{{transaction.Category.CategoryType}}</mat-cell>
+                            </ng-container>
+                    
+                            <ng-container matColumnDef="TransactionAmount">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header>Transaction Amount</mat-header-cell>
+                                <mat-cell *matCellDef="let transaction">$ {{transaction.TransactionAmount}}</mat-cell>
+                            </ng-container>
+                    
+                    
+                            <ng-container matColumnDef="TransactionDate">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Created </mat-header-cell>
+                                    <mat-cell *matCellDef="let transaction">{{transaction.TransactionDate | date: 'fullDate'}}</mat-cell>
+                            </ng-container>
+                    
+                            <ng-container matColumnDef="buttons">
+                                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                                <mat-cell *matCellDef="let transaction">
+                                    <i mat-icon class="material-icons" routerLink="/transactions/edit/{{transaction.TransactionID}}"> edit </i>
+                                    <i class="material-icons" routerLink="/transactions/delete/{{transaction.TransactionID}}">delete</i>
+                                </mat-cell>
+                            </ng-container>
+                    
+                        </mat-table>
+                    </div>
+            </mat-tab>
+
+        <mat-tab label="Income History"> 
+                <div class="tableOne">
+                        <h2>Income History</h2>
+            <mat-table #table [dataSource]="dataSourceIncome">
+                    <mat-header-row *matHeaderRowDef="columnNamesIncome"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: columnNamesIncome;"></mat-row>
+            
+                    <ng-container matColumnDef="IncomeAmount">
+                        <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
+                        <mat-cell *matCellDef="let income">$ {{income.IncomeAmount}}</mat-cell>
+                    </ng-container>
+            
+                    <ng-container matColumnDef="IncomeDate">
+                        <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+                        <mat-cell *matCellDef="let income">{{income.IncomeDate | date: 'fullDate'}}</mat-cell>
+                    </ng-container>
+            
+                    <ng-container matColumnDef="buttons">
+                        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                        <mat-cell *matCellDef="let income">
+                            <i mat-icon class="material-icons" routerLink="/incomes/edit/{{income.IncomeID}}"> edit </i>
+                            <i class="material-icons" routerLink="/incomes/delete/{{income.IncomeID}}">delete</i>
+                        </mat-cell>
+                    </ng-container>
+            
+                </mat-table>
+            </div>
+        </mat-tab>
+        
+      </mat-tab-group>
+
+
+<!-- <mat-grid-list cols="2" rowHeight="1:1">
+
+<mat-grid-tile>
+    
+    <div class="tableOne">
+        <h2>Transaction History</h2>
+        <mat-table #table [dataSource]="dataSourceTransaction" matSort class="mat-elevation-z8">
+                <mat-header-row *matHeaderRowDef="columnNamesTransaction; sticky: true"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: columnNamesTransaction;"></mat-row>
+        
+                <ng-container matColumnDef="CategoryType">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Category Type</mat-header-cell>
+                    <mat-cell *matCellDef="let transaction">{{transaction.Category.CategoryType}}</mat-cell>
+                </ng-container>
+        
+                <ng-container matColumnDef="TransactionAmount">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Transaction Amount</mat-header-cell>
+                    <mat-cell *matCellDef="let transaction">$ {{transaction.TransactionAmount}}</mat-cell>
+                </ng-container>
+        
+        
+                <ng-container matColumnDef="TransactionDate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Created </mat-header-cell>
+                        <mat-cell *matCellDef="let transaction">{{transaction.TransactionDate | date: 'fullDate'}}</mat-cell>
+                </ng-container>
+        
+                <ng-container matColumnDef="buttons">
+                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                    <mat-cell *matCellDef="let transaction">
+                        <i mat-icon class="material-icons" routerLink="/transactions/edit/{{transaction.TransactionID}}"> edit </i>
+                        <i class="material-icons" routerLink="/transactions/delete/{{transaction.TransactionID}}">delete</i>
+                    </mat-cell>
+                </ng-container>
+        
+            </mat-table>
+        </div>
+</mat-grid-tile>
+
+<mat-grid-tile>
+        <mat-table #table [dataSource]="dataSourceIncome">
+                <mat-header-row *matHeaderRowDef="columnNamesIncome"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: columnNamesIncome;"></mat-row>
+        
+                <ng-container matColumnDef="IncomeAmount">
+                    <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
+                    <mat-cell *matCellDef="let income">$ {{income.IncomeAmount}}</mat-cell>
+                </ng-container>
+        
+                <ng-container matColumnDef="IncomeDate">
+                    <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+                    <mat-cell *matCellDef="let income">{{income.IncomeDate | date: 'fullDate'}}</mat-cell>
+                </ng-container>
+        
+                <ng-container matColumnDef="buttons">
+                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                    <mat-cell *matCellDef="let income">
+                        <i mat-icon class="material-icons" routerLink="/incomes/edit/{{income.IncomeID}}"> edit </i>
+                        <i class="material-icons" routerLink="/incomes/delete/{{income.IncomeID}}">delete</i>
+                    </mat-cell>
+                </ng-container>
+        
+            </mat-table>
+</mat-grid-tile>
+    
+</mat-grid-list> -->
+
+

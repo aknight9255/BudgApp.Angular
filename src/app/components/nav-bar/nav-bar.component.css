@@ -1,0 +1,43 @@
+/* Created by Chase & Shabnam :) */
+
+.example-fill-remaining-space { /* Creates empty space between the left and right side of the navigation bar*/
+    flex: 1 1 auto; 
+}
+
+.nav-btn { /* All Navbar buttons */
+    color: rgb(255, 255, 255);
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    outline: none;
+    height: 100%;
+}
+
+.nav-btn-side { /* Register & Login Buttons position and size */
+    height: auto;
+    margin-right: 0.5em;
+}
+
+.active-class { /* Darker color for when tab is active */
+    background-color: rgb(81, 167, 158);
+}
+
+.nav-btn-raised { /* Login & Register buttons */
+    background-color: rgb(93, 189, 179);
+}
+
+.mat-toolbar.mat-primary { /* Changes the color of the navbar */
+    background-color: rgb(92, 202, 191);
+}
+
+.mat-toolbar{ /* BudgApp navbar header font */
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 40px;
+}
+
+.logo-image{ /* Coin logo image */
+    width: 55px;
+    height: 55px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

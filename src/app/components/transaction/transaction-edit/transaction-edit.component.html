@@ -1,1 +1,36 @@
-<p>transaction-edit works!</p>
+<h1>Edit Transaction.</h1>
+<hr>
+
+<div *ngIf='transaction'>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)"[formGroup]="editTransactionForm">
+        <div>
+            <div hidden>
+                <mat-form-field>
+                    <input matInput placeholder="TransactionID" formControlName="TransactionID" type="TransactionID" required [value]="transaction.TransactionID" />
+                </mat-form-field>
+            </div>
+            <div>
+                    <mat-form-field>
+                      <input matInput placeholder="TransactionAmount" formControlName="TransactionAmount" type="TransactionAmount" required [value]="transaction.TransactionAmount"/>
+                    </mat-form-field>
+                  </div>
+              
+                  <mat-form-field class="example-full-width">
+                    <input matInput [matDatepicker]="TransactionDate" formControlName="TransactionDate" placeholder="Choose a date" type="TransactionDate" required>
+                    <mat-datepicker-toggle matSuffix [for]="TransactionDate"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #TransactionDate></mat-datepicker>
+                  </mat-form-field>
+              
+                  <div>
+                    <mat-form-field>
+                        <mat-select formControlName="CategoryID"> 
+                            <mat-option *ngFor="let category of categories" value="{{category.CategoryID}}" >
+                              {{category.CategoryType}}
+                            </mat-option>
+                          </mat-select> 
+                    </mat-form-field>
+                  </div>
+        </div>
+        <button mat-raised-button class="nav-btn" color="primary" type="submit">Save</button>
+    </form>
+</div>

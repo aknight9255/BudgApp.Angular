@@ -1,1 +1,20 @@
-<p>income-delete works!</p>
+<h1>Delete</h1>
+<h4>Are you sure you want to delete this?</h4>
+<hr> 
+<div *ngIf="income">
+    <div>
+        <label for="">IncomeID:</label>
+        <span>{{income.IncomeID}}</span>
+    </div>
+    <div>
+            <label for="">Income Amount:</label>
+            <span>{{income.IncomeAmount}}</span>
+    </div>
+    <div>
+            <label for="">Income Date:</label>
+            <span>{{income.IncomeDate}}</span>
+    </div>
+</div>
+
+<button mat-button color="warn" (click)="onDelete()">Delete</button>|
+<button mat-button color="primary" routerLink="/incomes">Back to List</button>
