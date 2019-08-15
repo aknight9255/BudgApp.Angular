@@ -13,17 +13,18 @@ import { stringify } from '@angular/compiler/src/util';
 })
 export class ChartComponent implements OnInit {
   chartOptions = {
-    responsive: true
+  responsive: true
   }
 
   // transactions: Transaction[]=[];
 
   constructor(private _category: CategoryService, private _transaction: TransactionService, ) { }
 
-  transactionData = [] = []; //Category[]=[];
-  categories = [];
-  cateName: Category;
-  // Call transaction (Reminder :~) 5:01 PM UTC)
+
+ transactionData= []=[]; //Category[]=[];
+ categories =[];
+ cateName=[];
+ // Call transaction (Reminder :~) 5:01 PM UTC)
 
 
 
