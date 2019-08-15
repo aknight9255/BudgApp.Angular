@@ -1,6 +1,6 @@
-// export const environment = {
-//   production: true
-// };
+export const environment = {
+  production: true
+};
 
 export let APIURL = '';
 
@@ -12,5 +12,5 @@ switch (window.location.hostname) {
         break;
     default:
         // this is the local host name of your API
-        APIURL = 'http://localhost:4200';
+        APIURL = 'https://budgapp.azurewebsites.net';
 }
