@@ -17,6 +17,7 @@ import {
     MatGridListModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTabsModule,
 } from '@angular/material';
 
 import { MatDividerModule } from '@angular/material/divider';
@@ -54,6 +55,7 @@ import { ChartComponent } from './components/category/chart/chart.component';
 import { AdminGuard } from './guards/admin.guard';
 
 import { HistoryComponent } from './components/history/history.component';
+import { AboutComponent } from './components/about/about.component';
 // const routes: Routes = [
 //   { path: 'register', component: RegistrationComponent },
 //   { path: 'login', component: LoginComponent },
@@ -113,6 +115,7 @@ import { HistoryComponent } from './components/history/history.component';
     AdminDashboardComponent,
     ChartComponent,
     HistoryComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -137,6 +140,7 @@ import { HistoryComponent } from './components/history/history.component';
     MatGridListModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTabsModule,
     ChartsModule,
   ],
   providers: [

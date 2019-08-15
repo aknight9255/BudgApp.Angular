@@ -19,11 +19,16 @@ import { TransactionCreateComponent } from './components/transaction/transaction
 import { TransactionDeleteComponent } from './components/transaction/transaction-delete/transaction-delete.component';
 import { TransactionEditComponent } from './components/transaction/transaction-edit/transaction-edit.component';
 import { TransactionIndexComponent } from './components/transaction/transaction-index/transaction-index.component';
+import { HistoryComponent } from './components/history/history.component';
+import { AboutComponent } from './components/about/about.component';
+
 
 
 const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'history', component: HistoryComponent },
+  { path: 'about', component: AboutComponent },
   {
     path: 'incomes', children: [
       { path: '', component: IncomeIndexComponent },
