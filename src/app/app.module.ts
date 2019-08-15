@@ -18,6 +18,7 @@ import {
     MatPaginatorModule,
     MatSortModule,
     MatTabsModule,
+    MatExpansionModule,
 } from '@angular/material';
 
 import { MatDividerModule } from '@angular/material/divider';
@@ -142,6 +143,7 @@ import { AboutComponent } from './components/about/about.component';
     MatSortModule,
     MatTabsModule,
     ChartsModule,
+    MatExpansionModule,
   ],
   providers: [
     AuthService,

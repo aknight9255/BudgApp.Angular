@@ -16,14 +16,14 @@ export class ChartComponent implements OnInit {
     responsive: true
   }
 
-// transactions: Transaction[]=[];
+  // transactions: Transaction[]=[];
 
-  constructor(private _category: CategoryService, private _transaction: TransactionService,) { }
+  constructor(private _category: CategoryService, private _transaction: TransactionService, ) { }
 
- transactionData= []=[]; //Category[]=[];
- categories =[];
-cateName=[];
- // Call transaction (Reminder :~) 5:01 PM UTC)
+  transactionData = [] = []; //Category[]=[];
+  categories = [];
+  cateName: Category;
+  // Call transaction (Reminder :~) 5:01 PM UTC)
 
 
 
@@ -35,34 +35,32 @@ cateName=[];
   }];
   chartLabels = this.categories;
 
- getRandomColor() {
-  var letters = '7777756789ABCDEF'.split('');
-  var color = '#';
-  for (var i = 0; i < 6; i++ ) {
+  getRandomColor() {
+    var letters = '7777756789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
       color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
   }
-  return color;
-}
 
 
   ngOnInit() {
-    this._category.getCategories()
-    .subscribe(res => {
-      console.log(res)
-      
-    })
-  this._transaction.pullChartData().subscribe(e => {
-    for(let i = 0; i< e.length; i++) {
-      this.transactionData.push(e[i]);
-    }
-    console.log(this.transactionData)
-  });
-  this._category.getCategories().subscribe(e => {
-    for(let i = 0; i< e.length; i++){
-      this.categories.push(e[i]);
-    }
-    console.log(this.categories);
-  });
+ 
+    this._transaction.pullChartData().subscribe(e => {
+      for (let i = 0; i < e.length; i++) {
+        this.transactionData.push(e[i]);
+      }
+      console.log(this.transactionData)
+    });
+    this._category.getCategories().subscribe(e => {
+      for (let i = 0; i < e.length; i++) {
+
+        this.categories.push(e[i].CategoryType);
+      }
+
+      console.log(this.categories);
+    });
 
   }
 

@@ -3,17 +3,24 @@
 
 <app-chart></app-chart>
 
-<div>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Manage Categories
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput placeholder="First name">
+    </mat-form-field>
+
+  </mat-expansion-panel>
+<!-- <div>
   <mat-table #table [dataSource]="dataSource">
     <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
-<div hidden>
-    <ng-container matColumnDef="CategoryID">
-      <mat-header-cell *matHeaderCellDef> Category ID </mat-header-cell>
-      <mat-cell *matCellDef="let category"> {{category.CategoryID}} </mat-cell>
-    </ng-container><!-- REMEMBER TO HIDE THIS CHASE-->
-</div>
 <div>
     <ng-container matColumnDef="CategoryType">
       <mat-header-cell *matHeaderCellDef> Category Type </mat-header-cell>
@@ -30,4 +37,4 @@
     </ng-container>
 </div>
   </mat-table>
-</div>
+</div> -->
