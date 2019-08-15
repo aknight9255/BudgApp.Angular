@@ -36,7 +36,7 @@
     "tslib": "^1.9.0",
     "webpack": "^4.39.1",
     "webpack-dev-server": "^3.8.0",
-    "zone.js": "~0.9.1",
+    "zone.js": "~0.9.1"
    
   },
   "devDependencies": {
