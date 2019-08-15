@@ -18,9 +18,11 @@ import {
     MatPaginatorModule,
     MatSortModule,
     MatTabsModule,
+    MatExpansionModule,
 } from '@angular/material';
 
 import { MatDividerModule } from '@angular/material/divider';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -130,6 +132,7 @@ import { AboutComponent } from './components/about/about.component';
     MatInputModule,
     MatTableModule,
     MatSelectModule,
+    MatTooltipModule,
     AppRoutingModule,
     MatDividerModule,
     MatTableModule,
@@ -142,6 +145,7 @@ import { AboutComponent } from './components/about/about.component';
     MatSortModule,
     MatTabsModule,
     ChartsModule,
+    MatExpansionModule,
   ],
   providers: [
     AuthService,
