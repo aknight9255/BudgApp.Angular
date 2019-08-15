@@ -13,7 +13,7 @@ import { stringify } from '@angular/compiler/src/util';
 })
 export class ChartComponent implements OnInit {
   chartOptions = {
-    responsive: true
+  responsive: true
   }
 
 // transactions: Transaction[]=[];
@@ -22,7 +22,7 @@ export class ChartComponent implements OnInit {
 
  transactionData= []=[]; //Category[]=[];
  categories =[];
-cateName=[];
+ cateName=[];
  // Call transaction (Reminder :~) 5:01 PM UTC)
 
 
