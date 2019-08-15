@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Transaction } from 'src/app/models/transaction';
 import { CategoryService } from 'src/app/service/category.service';
 import { TransactionService } from 'src/app/service/transaction.service';
+import { Observable } from 'rxjs';
+import { Category } from 'src/app/models/category';
+import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-chart',
@@ -13,25 +16,24 @@ export class ChartComponent implements OnInit {
     responsive: true
   }
 
-transactions: Transaction[]=[];
+// transactions: Transaction[]=[];
 
   constructor(private _category: CategoryService, private _transaction: TransactionService,) { }
 
- transactionData = [5, 50, 43, 30, 41, 0]; //Category[]=[];
-
+ transactionData= []=[]; //Category[]=[];
+ categories =[];
+cateName=[];
  // Call transaction (Reminder :~) 5:01 PM UTC)
 
 
 
   chartData = [{
-    label: 'Categories',
     backgroundColor: this.getRandomColor,
     borderColor: 'rgb(255, 255, 255)',
     data: this.transactionData,
-    datasets: [
-      { y: this.transactionData, label: "Bills" },
-    ]
-  }]
+    chartLabels: this.categories,
+  }];
+  chartLabels = this.categories;
 
  getRandomColor() {
   var letters = '7777756789ABCDEF'.split('');
@@ -42,12 +44,25 @@ transactions: Transaction[]=[];
   return color;
 }
 
+
   ngOnInit() {
     this._category.getCategories()
     .subscribe(res => {
       console.log(res)
       
     })
+  this._transaction.pullChartData().subscribe(e => {
+    for(let i = 0; i< e.length; i++) {
+      this.transactionData.push(e[i]);
+    }
+    console.log(this.transactionData)
+  });
+  this._category.getCategories().subscribe(e => {
+    for(let i = 0; i< e.length; i++){
+      this.categories.push(e[i]);
+    }
+    console.log(this.categories);
+  });
 
   }
 
