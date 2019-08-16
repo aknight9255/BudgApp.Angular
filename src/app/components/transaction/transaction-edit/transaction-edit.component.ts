@@ -56,7 +56,7 @@ export class TransactionEditComponent implements OnInit {
       CategoryType: form.value.CategoryType
     };
     this._transactionService.updateTransaction(updateTransaction).subscribe(d => {
-      this._router.navigate(['/transactions'])
+      this._router.navigate(['/history'])
     })
   }
 
