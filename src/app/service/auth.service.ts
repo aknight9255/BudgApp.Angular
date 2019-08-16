@@ -12,7 +12,7 @@ import { APIURL } from 'src/environments/environment.prod';
 export class AuthService {
 
   userInfo: Token;
-  isLoggedIn = new Subject<boolean>();
+  isLoggedIn = new Subject<boolean>(); //
   isAdmin: boolean;
 
 
@@ -31,12 +31,12 @@ export class AuthService {
         localStorage.setItem('id_token', token.access_token);
         this.isLoggedIn.next(true);
         this.isAdmin = true;
-        console.log("Eyyy lmao");
-        this._router.navigate(['/incomess']);
+        //console.log("Eyyy lmao");
+        this._router.navigate(['/incomes']);
       });
     }
     else {
-      return this._http.post(`${APIURL}/token`, str).subscribe((token: Token) => {
+      return this._http.post(`${APIURL}/token`, str).subscribe( (token: Token) => {
         this.userInfo = token;
         localStorage.setItem('id_token', token.access_token);
         this.isLoggedIn.next(true);
@@ -47,30 +47,31 @@ export class AuthService {
 
 
   }
-  currentUser(): Observable<Object> {
-    if (!localStorage.getItem('if_token')) { return new Observable(observer => observer.next(false)); }
-
-    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-
-    return this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: authHeader });
-
-  }
   logout(): Observable<Object> {
     localStorage.clear();
     this.isLoggedIn.next(false);
-
+    
     return this._http.post(`${APIURL}/api/Account/Logout`, { headers: this.setHeader() });
   }
   
-  // isAuthed(): boolean {
-  //   const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-  //   var ok;
-  //   this._http.get(`${Api_Url}/api/Account/UserInfo`, { headers: authHeader }).subscribe(e => ok = e);
-  //   if(ok.Email == 'admin@admin.admin') return true;
-  //   else return false;
-  // }
-
   private setHeader(): HttpHeaders {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
+
+  currentUser(): Observable<Object> {
+    if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
+  
+    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+  
+    return this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: authHeader });
+  
+  }
 }
+
+// isAuthed(): boolean {
+//   const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+//   var ok;
+//   this._http.get(`${Api_Url}/api/Account/UserInfo`, { headers: authHeader }).subscribe(e => ok = e);
+//   if(ok.Email == 'admin@admin.admin') return true;
+//   else return false;
+// }
