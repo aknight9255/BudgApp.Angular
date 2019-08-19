@@ -24,7 +24,6 @@ export class ChartComponent implements OnInit {
  transactionData= []=[]; //Category[]=[];
  categories =[];
  cateName=[];
- // Call transaction (Reminder :~) 5:01 PM UTC)
 
 
 
