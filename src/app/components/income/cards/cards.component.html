@@ -3,6 +3,8 @@
     <li>
         <mat-card class="card">
             <mat-card-title>{{today | date: 'MMMM'}}</mat-card-title>
+                    <a style ="display: block;" mat-raised-button color="primary" routerLink="/incomes/create"> Add Income</a>
+                    <a style ="display: block;" mat-raised-button color="primary" routerLink="/transactions/create">Record Transaction</a> 
             <div class="transaction">
                 <mat-table #table [dataSource]="dataSourceOne">
                     <mat-header-row *matHeaderRowDef="columnNames; sticky: true"></mat-header-row>
@@ -47,6 +49,8 @@
     <li>
         <mat-card class="card">
             <mat-card-title>{{fullDateMonthTwo | date: 'MMMM'}}</mat-card-title>
+            <a style ="display: block;" mat-raised-button color="primary" routerLink="/incomes/create"> Add Income</a>
+            <a style ="display: block;" mat-raised-button color="primary" routerLink="/transactions/create">Record Transaction</a> 
             <div class="transaction">
                 <mat-table #table [dataSource]="dataSourceTwo">
                     <mat-header-row *matHeaderRowDef="columnNames sticky: true"></mat-header-row>
@@ -91,6 +95,8 @@
     <li>
         <mat-card class="card">
             <mat-card-title>{{fullDateMonthThree | date: 'MMMM'}}</mat-card-title>
+            <a style ="display: block;" mat-raised-button color="primary" routerLink="/incomes/create"> Add Income</a>
+            <a style ="display: block;" mat-raised-button color="primary" routerLink="/transactions/create">Record Transaction</a> 
             <div class="transaction">
                 <mat-table #table [dataSource]="dataSourceThree">
                     <mat-header-row *matHeaderRowDef="columnNames sticky: true"></mat-header-row>
