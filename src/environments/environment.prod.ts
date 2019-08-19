@@ -8,9 +8,9 @@ switch (window.location.hostname) {
     // this is the deployed angular application
     case 'tbc-budgapp.herokuapp.com':
         // this is the full url of your deployed backend API
-        APIURL = 'https://budgapp.azurewebsites.net'
+        APIURL = 'https://localhost:44362'
         break;
     default:
         // this is the local host name of your API
-        APIURL = 'https://budgapp.azurewebsites.net';
+        APIURL = 'https://localhost:44362';
 }
