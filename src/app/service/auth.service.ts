@@ -12,11 +12,15 @@ import { APIURL } from 'src/environments/environment.prod';
 export class AuthService {
 
   userInfo: Token;
-  isLoggedIn = new Subject<boolean>(); //
+  isLoggedIn: boolean = true;
   isAdmin: boolean;
 
 
-  constructor(private _http: HttpClient, private _router: Router) { }
+  constructor(private _http: HttpClient, private _router: Router) {
+    if(!localStorage.getItem("id_token")) {
+      this.isLoggedIn = false;
+    }
+  }
 
   register(regUserData: RegisterUser) {
     return this._http.post(`${APIURL}/api/Account/Register`, regUserData);
@@ -29,42 +33,44 @@ export class AuthService {
       return this._http.post(`${APIURL}/token`, str).subscribe((token: Token) => {
         this.userInfo = token;
         localStorage.setItem('id_token', token.access_token);
-        this.isLoggedIn.next(true);
+        // this.isLoggedIn.next(true);
+        this.isLoggedIn = true;
         this.isAdmin = true;
         //console.log("Eyyy lmao");
         this._router.navigate(['/incomes']);
       });
     }
     else {
-      return this._http.post(`${APIURL}/token`, str).subscribe( (token: Token) => {
+      return this._http.post(`${APIURL}/token`, str).subscribe((token: Token) => {
         this.userInfo = token;
         localStorage.setItem('id_token', token.access_token);
-        this.isLoggedIn.next(true);
+        // this.isLoggedIn.next(true);
+        this.isLoggedIn = true;
         this.isAdmin = false;
         this._router.navigate(['/incomes']);
       });
     }
-
-
   }
+
   logout(): Observable<Object> {
     localStorage.clear();
-    this.isLoggedIn.next(false);
-    
+    // this.isLoggedIn.next(false);
+    this.isLoggedIn = false;
+
     return this._http.post(`${APIURL}/api/Account/Logout`, { headers: this.setHeader() });
   }
-  
+
   private setHeader(): HttpHeaders {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
 
   currentUser(): Observable<Object> {
     if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
-  
+
     const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-  
+
     return this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: authHeader });
-  
+
   }
 }
 

@@ -2,9 +2,9 @@
   <a href="/incomes" style="text-decoration: none; color: white;">BudgApp</a>
   <a href="/incomes"><img class="logo-image" src="../../../assets/coins.png"></a>
 
-  <button *ngIf="isLoggedIn" class="loggedIn" mat-button class="nav-btn" routerLink="/incomes" routerLinkActive="active-class">Wallet</button>
-  <button *ngIf="isLoggedIn" class="loggedIn" mat-button class="nav-btn" routerLink="/history" routerLinkActive="active-class">History</button>
-  <button *ngIf="isLoggedIn" class="loggedIn" mat-button class="nav-btn" routerLink="/category" routerLinkActive="active-class">Overview</button>
+  <button *ngIf="this.authService.isLoggedIn" class="loggedIn" mat-button class="nav-btn" routerLink="/incomes" routerLinkActive="active-class">Wallet</button>
+  <button *ngIf="this.authService.isLoggedIn" class="loggedIn" mat-button class="nav-btn" routerLink="/history" routerLinkActive="active-class">History</button>
+  <button *ngIf="this.authService.isLoggedIn" class="loggedIn" mat-button class="nav-btn" routerLink="/category" routerLinkActive="active-class">Overview</button>
 
 
   <button mat-button class="nav-btn" routerLink="/about" routerLinkActive="active-class">About</button>
@@ -12,10 +12,10 @@
 
   <button mat-raised-button *ngIf="IsAdmin" class="admin" class="nav-btn nav-btn-raised nav-btn-side" routerLink="/admin-dashboard" routerLinkActive="active-class">Admin</button>
 
-  <button *ngIf="isLoggedIn" class="loggedIn" mat-raised-button class="nav-btn nav-btn-raised nav-btn-side" (click)="onLoggout()">Logout</button> 
+  <button *ngIf="this.authService.isLoggedIn" class="loggedIn" mat-raised-button class="nav-btn nav-btn-raised nav-btn-side" (click)="onLoggout()">Logout</button> 
 
-  <button mat-raised-button *ngIf="!isLoggedIn" class="logging-btns" class="nav-btn nav-btn-raised nav-btn-side" routerLink="/register">Register</button>
-  <button mat-raised-button *ngIf="!isLoggedIn" class="logging-btns" class="nav-btn nav-btn-raised nav-btn-side" routerLink="/login">Login</button>
+  <button mat-raised-button *ngIf="!this.authService.isLoggedIn" class="logging-btns" class="nav-btn nav-btn-raised nav-btn-side" routerLink="/register">Register</button>
+  <button mat-raised-button *ngIf="!this.authService.isLoggedIn" class="logging-btns" class="nav-btn nav-btn-raised nav-btn-side" routerLink="/login">Login</button>
 
 </mat-toolbar>
 
