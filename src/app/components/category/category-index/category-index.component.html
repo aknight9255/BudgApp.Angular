@@ -12,7 +12,7 @@
     </mat-expansion-panel-header>
 
     <mat-form-field>
-      <input matInput placeholder="Categories">
+      <input matInput ="Categories">
       <mat-table #table [dataSource]="dataSource">
         <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
         <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
