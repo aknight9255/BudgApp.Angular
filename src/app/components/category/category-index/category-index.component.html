@@ -12,29 +12,21 @@
     </mat-expansion-panel-header>
 
     <mat-form-field>
-      <input matInput placeholder="First name">
+      <input matInput placeholder="Categories">
+      <mat-table #table [dataSource]="dataSource">
+        <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+        <ng-container matColumnDef="CategoryType">
+          <mat-header-cell *matHeaderCellDef> Category Type </mat-header-cell>
+          <mat-cell *matCellDef="let category"> {{category.CategoryType}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="buttons">
+          <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+          <mat-cell *matCellDef="let category">
+            <i mat-icon class="material-icons" color="warn" routerLink="/category/edit/{{category.CategoryID}}">edit</i>
+            <i class="material-icons" routerLink="/category/delete/{{category.CategoryID}}">delete</i>
+          </mat-cell>
+        </ng-container>
+      </mat-table>
     </mat-form-field>
 
-  </mat-expansion-panel>
-<!-- <div>
-  <mat-table #table [dataSource]="dataSource">
-    <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
-
-<div>
-    <ng-container matColumnDef="CategoryType">
-      <mat-header-cell *matHeaderCellDef> Category Type </mat-header-cell>
-      <mat-cell *matCellDef="let category"> {{category.CategoryType}} </mat-cell>
-    </ng-container>
-</div>
-<div>
-    <ng-container matColumnDef="buttons">
-      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
-      <mat-cell *matCellDef="let category">
-        <i mat-icon class="material-icons" color="warn" routerLink="/category/edit/{{category.CategoryID}}">edit</i>
-        <i class="material-icons" routerLink="/category/delete/{{category.CategoryID}}">delete</i>
-      </mat-cell>
-    </ng-container>
-</div>
-  </mat-table>
-</div> -->
