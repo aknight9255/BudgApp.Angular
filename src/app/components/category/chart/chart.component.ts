@@ -33,6 +33,7 @@ export class ChartComponent implements OnInit {
     borderColor: 'rgb(255, 255, 255)',
     data: this.transactionData,
     chartLabels: this.categories,
+    
   }];
   chartLabels = this.categories;
 
