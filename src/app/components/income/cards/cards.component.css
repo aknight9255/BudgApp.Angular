@@ -25,8 +25,16 @@ li {
 
 ul {
     text-align: center;
+    margin-bottom: 0;
 }
 p{
     font-size: 50%;
-    border: #5CCABF solid;
+    border: 1px #5CCABF solid;
+    color: #5CCABF;
+    margin-top: 65px;
+
+}
+
+h5{
+    color: rgba(0,0,0,.54);
 }

@@ -24,7 +24,7 @@ transaction: Transaction;
 
   onDelete(){
     this._transactionService.deleteTransaction(this.transaction.TransactionID).subscribe(()=> {
-      this._router.navigate(['transactions'])
+      this._router.navigate(['/history'])
     })
   }
 

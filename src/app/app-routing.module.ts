@@ -47,14 +47,14 @@ const routes: Routes = [
   },
   {
     path: 'transactions', children: [
-      { path: '', component: TransactionIndexComponent },
       { path: 'create', component: TransactionCreateComponent },
       { path: 'edit/:id', component: TransactionEditComponent },
       { path: 'delete/:id', component: TransactionDeleteComponent },
+      { path: '', component: TransactionIndexComponent },
     ]
   },
   { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] },
-  { path: '**', component: RegistrationComponent },
+  { path: '**', component: AboutComponent },
 ];
 
 @NgModule({

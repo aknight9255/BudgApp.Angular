@@ -42,7 +42,7 @@ export class TransactionCreateComponent implements OnInit {
 
   onSubmit(){
     this._transactionService.createTransaction(this.transactionForm.value).subscribe(data => {
-      this._router.navigate(['/transactions'])
+      this._router.navigate(['/history'])
     });
   }
 
