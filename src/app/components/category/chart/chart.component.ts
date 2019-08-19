@@ -13,7 +13,9 @@ import { stringify } from '@angular/compiler/src/util';
 })
 export class ChartComponent implements OnInit {
   chartOptions = {
-  responsive: true
+    responsive: true,
+    indexLabel: "{categories} - #percent%",
+    toolTipContent: "<b>{categories}:</b> {y} (#percent%)"
   }
 
   // transactions: Transaction[]=[];
@@ -33,7 +35,12 @@ export class ChartComponent implements OnInit {
     borderColor: 'rgb(255, 255, 255)',
     data: this.transactionData,
     chartLabels: this.categories,
-    
+    options: {
+      title: {
+        display: true,
+        text: 'Predicted world population (millions) in 2050'
+      }
+    }
   }];
   chartLabels = this.categories;
 
@@ -45,7 +52,6 @@ export class ChartComponent implements OnInit {
     }
     return color;
   }
-
 
   ngOnInit() {
  
