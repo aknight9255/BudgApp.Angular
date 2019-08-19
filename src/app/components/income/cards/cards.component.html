@@ -3,8 +3,8 @@
     <li>
         <mat-card class="card">
             <mat-card-title>{{today | date: 'MMMM'}}</mat-card-title>
-                    <a style ="display: block;" mat-raised-button color="primary" routerLink="/incomes/create"> Add Income</a>
-                    <a style ="display: block;" mat-raised-button color="primary" routerLink="/transactions/create">Record Transaction</a> 
+            <a class = "card-btn-income" mat-raised-button color="primary" routerLink="/incomes/create"> Add Income</a>
+            <a class = "card-btn-transaction" mat-raised-button color="primary" routerLink="/transactions/create">Record Transaction</a>
             <div class="transaction">
                 <mat-table #table [dataSource]="dataSourceOne">
                     <mat-header-row *matHeaderRowDef="columnNames; sticky: true"></mat-header-row>
@@ -40,7 +40,11 @@
                 </mat-table>
             </div>
             <div>
-                <p matTooltip="This is your remaining balance for the month." aria label="Balance">$ {{balanceOne}}</p>
+                    <p matTooltip="This is your remaining balance for the month." aria label="Balance" [ngClass]="{
+                        'positive' : balanceOne >= 0,
+                        'negative' : balanceOne < 0
+                     }"
+                     >$ {{balanceOne | number:'1.0-2'}}</p>
                 <h5>REMAINING</h5>
             </div>
         </mat-card>
@@ -49,8 +53,8 @@
     <li>
         <mat-card class="card">
             <mat-card-title>{{fullDateMonthTwo | date: 'MMMM'}}</mat-card-title>
-            <a style ="display: block;" mat-raised-button color="primary" routerLink="/incomes/create"> Add Income</a>
-            <a style ="display: block;" mat-raised-button color="primary" routerLink="/transactions/create">Record Transaction</a> 
+            <a class = "card-btn-income" mat-raised-button color="primary" routerLink="/incomes/create"> Add Income</a>
+            <a class = "card-btn-transaction" mat-raised-button color="primary" routerLink="/transactions/create">Record Transaction</a> 
             <div class="transaction">
                 <mat-table #table [dataSource]="dataSourceTwo">
                     <mat-header-row *matHeaderRowDef="columnNames sticky: true"></mat-header-row>
@@ -86,7 +90,11 @@
                 </mat-table>
             </div>
             <div>
-                <p matTooltip="This is your remaining balance for the month." aria label="Balance">$ {{balanceTwo}}</p>
+                    <p matTooltip="This is your remaining balance for the month." aria label="Balance" [ngClass]="{
+                   'positive' : balanceTwo >= 0,
+                   'negative' : balanceTwo < 0
+                }"
+                >$ {{balanceTwo | number:'1.0-2'}}</p>
                 <h5>REMAINING</h5>
             </div>
         </mat-card>
@@ -95,8 +103,8 @@
     <li>
         <mat-card class="card">
             <mat-card-title>{{fullDateMonthThree | date: 'MMMM'}}</mat-card-title>
-            <a style ="display: block;" mat-raised-button color="primary" routerLink="/incomes/create"> Add Income</a>
-            <a style ="display: block;" mat-raised-button color="primary" routerLink="/transactions/create">Record Transaction</a> 
+            <a class = "card-btn-income" mat-raised-button color="primary" routerLink="/incomes/create"> Add Income</a>
+            <a class = "card-btn-transaction" mat-raised-button color="primary" routerLink="/transactions/create">Record Transaction</a>
             <div class="transaction">
                 <mat-table #table [dataSource]="dataSourceThree">
                     <mat-header-row *matHeaderRowDef="columnNames sticky: true"></mat-header-row>
@@ -132,7 +140,11 @@
                 </mat-table>
             </div>
             <div>
-                <p matTooltip="This is your remaining balance for the month." aria label="Balance">$ {{balanceThree}}</p>
+                    <p matTooltip="This is your remaining balance for the month." aria label="Balance" [ngClass]="{
+                        'positive' : balanceThree >= 0,
+                        'negative' : balanceThree < 0
+                     }"
+                     >$ {{balanceThree | number:'1.0-2'}}</p>
                 <h5>REMAINING</h5>
             </div>
         </mat-card>

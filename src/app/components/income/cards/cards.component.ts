@@ -27,29 +27,34 @@ export class Cards {
   balanceOne: number;
   balanceTwo: number;
   balanceThree: number;
+  negative: boolean;
   
     constructor(private _transactionService: TransactionService) { }
   
     ngOnInit() {
+      this.negative = true;
+
       console.log(this.fullDateMonthOne);
       this._transactionService.getTransactionByMonth(this.fullDateMonthOne).subscribe((transactions: Transaction[]) => {
         this.dataSourceOne = new MatTableDataSource<Transaction>(transactions);
-        console.log(transactions)
+        console.log(transactions);
       });
   
       this._transactionService.getTransactionByMonth(this.fullDateMonthTwo).subscribe((transactions: Transaction[]) => {
         this.dataSourceTwo = new MatTableDataSource<Transaction>(transactions);
-        console.log(transactions)
+        console.log(transactions);
       });
   
       this._transactionService.getTransactionByMonth(this.fullDateMonthThree).subscribe((transactions: Transaction[]) => {
         this.dataSourceThree = new MatTableDataSource<Transaction>(transactions);
-        console.log(transactions)
+        console.log(transactions);
       });
+
+      // ----------- Balances ------------
       
       this._transactionService.pullBalance((this.fullDateMonthOne)).subscribe((singleBalance: number) => {
         this.balanceOne = singleBalance;
-        console.log(singleBalance)
+        console.log(singleBalance);
       });
 
       this._transactionService.pullBalance((this.fullDateMonthTwo)).subscribe((singleBalance: number) => {
