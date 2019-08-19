@@ -13,30 +13,35 @@ export class NavBarComponent implements OnInit {
   IsAdmin: boolean;
   username: string;
   isLoggedIn: boolean;
-  constructor(private auth: AdminGuard,private authService: AuthService, private _router: Router) { }
+  constructor(private auth: AdminGuard, public authService: AuthService, private _router: Router) { }
 
   ngOnInit() {
-    if(this.auth.canActivate() == true){
-      this.IsAdmin=true;
+    if (this.auth.canActivate() == true) {
+      this.IsAdmin = true;
 
-     }
-     else{
-       this.IsAdmin=false;
-     }
-        this.authService.isLoggedIn.subscribe((loggedInUserStatus: boolean) =>{
-      console.log(loggedInUserStatus);
-      this.isLoggedIn = loggedInUserStatus;
-  });
+    }
+    else {
+      this.IsAdmin = false;
+    }
+    console.log(this.authService.isLoggedIn);
+    // if (localStorage.getItem("id_token") != null) {
+    //   this.isLoggedIn = true;
+    // }
+    
+      // this.authService.isLoggedIn.subscribe((loggedInUserStatus: boolean) =>{
+      // console.log(loggedInUserStatus);
+      // this.isLoggedIn = loggedInUserStatus;
+      // });
   }
-  
+
   onLoggout() {
-  this.authService.logout();
-  this.isLoggedIn = false;
-  this._router.navigate(['/login']);
-}
+    this.authService.logout();
+    this.isLoggedIn = false;
+    this._router.navigate(['/login']);
+  }
 
 }
-export interface UserData  {
+export interface UserData {
   user: string;
   isloggedin: boolean;
 }
