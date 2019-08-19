@@ -1,5 +1,4 @@
 <br>
-<a mat-raised-button color="primary" routerLink="/category/create">Add Category</a>
 
 <app-chart></app-chart>
 
@@ -10,8 +9,9 @@
         Manage Categories
       </mat-panel-title>
     </mat-expansion-panel-header>
-
+    
     <mat-form-field>
+      <a mat-raised-button color="primary" routerLink="/category/create">Add Category</a>
       <input matInput ="Categories">
       <mat-table #table [dataSource]="dataSource">
         <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>

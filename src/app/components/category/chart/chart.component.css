@@ -13,3 +13,6 @@ element.style {
     width: 400px;
     height: 400px;
 }
+.legend {
+    font-size: 100px;
+}
