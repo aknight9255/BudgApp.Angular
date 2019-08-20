@@ -3,24 +3,26 @@
     <li>
         <mat-card class="card">
             <mat-card-title>{{today | date: 'MMMM'}}</mat-card-title>
+            <a class = "card-btn-income" mat-raised-button color="primary" routerLink="/incomes/create"> Add Income</a>
+            <a class = "card-btn-transaction" mat-raised-button color="primary" routerLink="/transactions/create">Record Transaction</a>
             <div class="transaction">
                 <mat-table #table [dataSource]="dataSourceOne">
                     <mat-header-row *matHeaderRowDef="columnNames; sticky: true"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
                     <ng-container matColumnDef="CategoryType">
-                        <mat-header-cell *matHeaderCellDef>Category Type</mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef>Category</mat-header-cell>
                         <mat-cell *matCellDef="let transaction">{{transaction.Category.CategoryType}}</mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="TransactionAmount">
-                        <mat-header-cell *matHeaderCellDef>Transaction Amount</mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef>Transaction</mat-header-cell>
                         <mat-cell *matCellDef="let transaction">$ {{transaction.TransactionAmount}}</mat-cell>
                     </ng-container>
 
 
                     <ng-container matColumnDef="TransactionDate">
-                        <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
                         <mat-cell *matCellDef="let transaction">{{transaction.TransactionDate | date: 'fullDate'}}
                         </mat-cell>
                     </ng-container>
@@ -28,9 +30,9 @@
                     <ng-container matColumnDef="buttons">
                         <mat-header-cell *matHeaderCellDef></mat-header-cell>
                         <mat-cell *matCellDef="let transaction">
-                            <i mat-icon class="material-icons"
+                            <i matTooltip="Edit Transaction" aria label="Edit" mat-icon class="material-icons"
                                 routerLink="/transactions/edit/{{transaction.TransactionID}}"> edit </i>
-                            <i class="material-icons"
+                            <i matTooltip="Delete Transaction" aria label="Delete"  class="material-icons"
                                 routerLink="/transactions/delete/{{transaction.TransactionID}}">delete</i>
                         </mat-cell>
                     </ng-container>
@@ -38,7 +40,12 @@
                 </mat-table>
             </div>
             <div>
-                <p>{{balanceOne}}</p>
+                    <p matTooltip="This is your remaining balance for the month." aria label="Balance" [ngClass]="{
+                        'positive' : balanceOne >= 0,
+                        'negative' : balanceOne < 0
+                     }"
+                     >$ {{balanceOne | number:'1.0-2'}}</p>
+                <h5>REMAINING</h5>
             </div>
         </mat-card>
     </li>
@@ -46,24 +53,26 @@
     <li>
         <mat-card class="card">
             <mat-card-title>{{fullDateMonthTwo | date: 'MMMM'}}</mat-card-title>
+            <a class = "card-btn-income" mat-raised-button color="primary" routerLink="/incomes/create"> Add Income</a>
+            <a class = "card-btn-transaction" mat-raised-button color="primary" routerLink="/transactions/create">Record Transaction</a> 
             <div class="transaction">
                 <mat-table #table [dataSource]="dataSourceTwo">
                     <mat-header-row *matHeaderRowDef="columnNames sticky: true"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
                     <ng-container matColumnDef="CategoryType">
-                        <mat-header-cell *matHeaderCellDef>Category Type</mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef>Category</mat-header-cell>
                         <mat-cell *matCellDef="let transaction">{{transaction.Category.CategoryType}}</mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="TransactionAmount">
-                        <mat-header-cell *matHeaderCellDef>Transaction Amount</mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef>Transaction</mat-header-cell>
                         <mat-cell *matCellDef="let transaction">$ {{transaction.TransactionAmount}}</mat-cell>
                     </ng-container>
 
 
                     <ng-container matColumnDef="TransactionDate">
-                        <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
                         <mat-cell *matCellDef="let transaction">{{transaction.TransactionDate | date: 'fullDate'}}
                         </mat-cell>
                     </ng-container>
@@ -71,9 +80,9 @@
                     <ng-container matColumnDef="buttons">
                         <mat-header-cell *matHeaderCellDef></mat-header-cell>
                         <mat-cell *matCellDef="let transaction">
-                            <i mat-icon class="material-icons"
+                            <i matTooltip="Edit Transaction" aria label="Edit" mat-icon class="material-icons"
                                 routerLink="/transactions/edit/{{transaction.TransactionID}}"> edit </i>
-                            <i class="material-icons"
+                            <i matTooltip="Delete Transaction" aria label="Delete" class="material-icons"
                                 routerLink="/transactions/delete/{{transaction.TransactionID}}">delete</i>
                         </mat-cell>
                     </ng-container>
@@ -81,7 +90,12 @@
                 </mat-table>
             </div>
             <div>
-                <p>{{balanceTwo}}</p>
+                    <p matTooltip="This is your remaining balance for the month." aria label="Balance" [ngClass]="{
+                   'positive' : balanceTwo >= 0,
+                   'negative' : balanceTwo < 0
+                }"
+                >$ {{balanceTwo | number:'1.0-2'}}</p>
+                <h5>REMAINING</h5>
             </div>
         </mat-card>
     </li>
@@ -89,24 +103,26 @@
     <li>
         <mat-card class="card">
             <mat-card-title>{{fullDateMonthThree | date: 'MMMM'}}</mat-card-title>
+            <a class = "card-btn-income" mat-raised-button color="primary" routerLink="/incomes/create"> Add Income</a>
+            <a class = "card-btn-transaction" mat-raised-button color="primary" routerLink="/transactions/create">Record Transaction</a>
             <div class="transaction">
                 <mat-table #table [dataSource]="dataSourceThree">
                     <mat-header-row *matHeaderRowDef="columnNames sticky: true"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
                     <ng-container matColumnDef="CategoryType">
-                        <mat-header-cell *matHeaderCellDef>Category Type</mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef>Category</mat-header-cell>
                         <mat-cell *matCellDef="let transaction">{{transaction.Category.CategoryType}}</mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="TransactionAmount">
-                        <mat-header-cell *matHeaderCellDef>Transaction Amount</mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef>Transaction</mat-header-cell>
                         <mat-cell *matCellDef="let transaction">$ {{transaction.TransactionAmount}}</mat-cell>
                     </ng-container>
 
 
                     <ng-container matColumnDef="TransactionDate">
-                        <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
                         <mat-cell *matCellDef="let transaction">{{transaction.TransactionDate | date: 'fullDate'}}
                         </mat-cell>
                     </ng-container>
@@ -114,9 +130,9 @@
                     <ng-container matColumnDef="buttons">
                         <mat-header-cell *matHeaderCellDef></mat-header-cell>
                         <mat-cell *matCellDef="let transaction">
-                            <i mat-icon class="material-icons"
+                            <i matTooltip="Edit Transaction" aria label="Edit" mat-icon class="material-icons"
                                 routerLink="/transactions/edit/{{transaction.TransactionID}}"> edit </i>
-                            <i class="material-icons"
+                            <i matTooltip="Delete Transaction" aria label="Delete"  class="material-icons"
                                 routerLink="/transactions/delete/{{transaction.TransactionID}}">delete</i>
                         </mat-cell>
                     </ng-container>
@@ -124,7 +140,12 @@
                 </mat-table>
             </div>
             <div>
-                <p>{{balanceThree}}</p>
+                    <p matTooltip="This is your remaining balance for the month." aria label="Balance" [ngClass]="{
+                        'positive' : balanceThree >= 0,
+                        'negative' : balanceThree < 0
+                     }"
+                     >$ {{balanceThree | number:'1.0-2'}}</p>
+                <h5>REMAINING</h5>
             </div>
         </mat-card>
     </li>

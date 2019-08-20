@@ -1,4 +1,4 @@
-<h1>Edit Transaction.</h1>
+<h1 class="title-color">Edit Transaction</h1>
 <hr>
 
 <div *ngIf='transaction'>
@@ -24,13 +24,12 @@
                   <div>
                     <mat-form-field>
                         <mat-select formControlName="CategoryID"> 
-                            <mat-option *ngFor="let category of categories" value="{{category.CategoryID}}" >
-                              {{category.CategoryType}}
-                            </mat-option>
+                            <mat-option *ngFor="let category of categories" value="{{category.CategoryID}}" >{{category.CategoryType}}
+                          </mat-option>
                           </mat-select> 
                     </mat-form-field>
                   </div>
         </div>
-        <button mat-raised-button class="nav-btn" color="primary" type="submit">Save</button>
+        <button mat-raised-button class="btn-submit" color="primary" type="submit">Save</button>
     </form>
 </div>

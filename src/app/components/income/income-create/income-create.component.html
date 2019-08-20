@@ -1,11 +1,12 @@
-<h1>Add Income</h1>
+<h1 class="title-color">Add Income</h1>
 <hr>
 
 <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="incomeForm">
   <div>
     <div>
       <mat-form-field>
-        <input matInput placeholder="IncomeAmount" formControlName="IncomeAmount" type="IncomeAmount" required/>
+        <input matInput placeholder="Amount" formControlName="IncomeAmount" type="IncomeAmount" required>
+        <span style="color: #747474;" matPrefix>$&nbsp;</span>
       </mat-form-field>
     </div>
     <div>
@@ -18,7 +19,7 @@
 
     </div>
   </div>
-  <button mat-raised-button class="nav-btn" color="primary" type="submit">Add Income</button>
+  <button mat-raised-button class="btn-submit" color="primary" routerLink="/incomes" type="submit">Add Income</button>
 </form>
 
-<a mat-button routerLink="/incomes">Back to List</a>
+<a class="btn-back" mat-button routerLink="/incomes">Back to List</a>

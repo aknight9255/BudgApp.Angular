@@ -2,7 +2,36 @@ table {
     width: 100%;
 }
 
+
 .tableOne{
-    height: 400px;
-    overflow: auto;
+    height: 600px;
 }
+
+i:hover {
+    transition: 0.3s;
+
+    color: #5CCABF;
+}
+
+.btn-submit{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    background-color: #5CCABF;
+    margin: 10px;
+    text-decoration: none;
+    border: 30px;
+}
+
+.btn-submit:hover{
+
+    transition: 0.3s;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    background-color: rgb(164, 230, 223);
+    margin: 10px;
+    text-decoration: none;
+    border:30px;
+
+}
+
+

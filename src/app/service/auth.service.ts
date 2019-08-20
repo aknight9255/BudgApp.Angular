@@ -5,6 +5,7 @@ import { Token } from '../models/token';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { APIURL } from 'src/environments/environment.prod';
+import { UserInfo } from '../models/user-info';
 
 // const Api_Url = 'https://budgapp.azurewebsites.net';
 
@@ -12,65 +13,83 @@ import { APIURL } from 'src/environments/environment.prod';
 export class AuthService {
 
   userInfo: Token;
-  isLoggedIn = new Subject<boolean>();
-  isAdmin: boolean;
+  isLoggedIn: boolean = true;
+  public isAdmin: boolean;
+  public role: UserInfo;
 
 
-  constructor(private _http: HttpClient, private _router: Router) { }
+  constructor(private _http: HttpClient, private _router: Router) {
+    if(!localStorage.getItem("id_token")) {
+      this.isLoggedIn = false;
+    }
+  }
 
   register(regUserData: RegisterUser) {
-    return this._http.post(`${APIURL}/api/Account/Register`, regUserData);
+    return this._http.post(`${APIURL}api/Account/Register`, regUserData);
   }
 
   login(loginInfo) {
     const str = `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
 
-    if (loginInfo.email == "admin@admin.admin" && loginInfo.password == "Admin1!") {
-      return this._http.post(`${APIURL}/token`, str).subscribe((token: Token) => {
-        this.userInfo = token;
-        localStorage.setItem('id_token', token.access_token);
-        this.isLoggedIn.next(true);
-        this.isAdmin = true;
-        console.log("Eyyy lmao");
-        this._router.navigate(['/income']);
-      });
-    }
-    else {
-      return this._http.post(`${APIURL}/token`, str).subscribe((token: Token) => {
-        this.userInfo = token;
-        localStorage.setItem('id_token', token.access_token);
-        this.isLoggedIn.next(true);
-        this.isAdmin = false;
-        this._router.navigate(['/income']);
-      });
-    }
-
-
+    return this._http.post(`${APIURL}token`, str).subscribe((token: Token) => {
+      this.userInfo = token;
+      localStorage.setItem('id_token', token.access_token);
+      this.isLoggedIn = true;
+      this.currentUser();
+      this._router.navigate(['/incomes']); 
+    });
   }
-  currentUser(): Observable<Object> {
-    if (!localStorage.getItem('if_token')) { return new Observable(observer => observer.next(false)); }
 
-    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-
-    return this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: authHeader });
-
-  }
   logout(): Observable<Object> {
     localStorage.clear();
-    this.isLoggedIn.next(false);
+    this.isLoggedIn = false;
 
-    return this._http.post(`${APIURL}/api/Account/Logout`, { headers: this.setHeader() });
+    return this._http.post(`${APIURL}api/Account/Logout`, { headers: this.setHeader() });
   }
-  
-  // isAuthed(): boolean {
-  //   const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-  //   var ok;
-  //   this._http.get(`${Api_Url}/api/Account/UserInfo`, { headers: authHeader }).subscribe(e => ok = e);
-  //   if(ok.Email == 'admin@admin.admin') return true;
-  //   else return false;
-  // }
 
+  
+  currentUser() {
+    this._http.get(`${APIURL}api/Account/UserInfo`, { headers: this.setHeader() }).subscribe((userRole: UserInfo) => {
+      localStorage.setItem('role', userRole.Role);
+      this.adminUser();
+      console.log(userRole)
+    })
+  }
+  // currentUser(): Observable<Object> {
+    // if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
+
+    // const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+    
+    // return this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: authHeader });
+
+    // }
+    
+    adminUser() {
+      if (localStorage.getItem('role') == 'Admin') {
+        this.isAdmin = true;
+      } 
+      else { 
+        this.isAdmin = false;
+      }
+    }
+    
+    refreshPage() {
+      window.location.reload();
+    }
+
+    getUsers(){
+      return this._http.get(`${APIURL}api/Account/AllUsers`, { headers: this.setHeader() });
+    }
+    getOneUser(id: string){
+      return this._http.get(`${APIURL}/api/Account/PullUserByID?ID=${id}`, { headers: this.setHeader() });
+    }
+    deleteUser(id: string){
+      return this._http.delete(`${APIURL}/api/Account/${id}`, { headers: this.setHeader() });
+    }
+ 
+  
   private setHeader(): HttpHeaders {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
-}
+
+ }

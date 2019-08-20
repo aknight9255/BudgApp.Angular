@@ -1,12 +1,8 @@
-<div *ngFor="let category of categories" >
-    {{category.CategoryType}}
-</div>
-
 <div class="myChart">
     <canvas
     baseChart
     [chartType]="'doughnut'"
-    [datasets]="chartData"
+    [datasets]="chartData" 
     [labels]="chartLabels"
     [options]="chartOptions"
     [legend]="true"

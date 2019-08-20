@@ -1,20 +1,19 @@
-<h1>Delete</h1>
-<h4>Are you sure you want to delete this?</h4>
+<h1 class="title-color">Delete Income</h1>
+<h4 class="title-color">Are you sure you want to delete this Income? :(</h4>
 <hr> 
 <div *ngIf="income">
     <div>
-        <label for="">IncomeID:</label>
-        <span>{{income.IncomeID}}</span>
+            <label class="types" for="">Amount:</label><br>
+            <span> ${{income.IncomeAmount | number:'1.0-2'}}</span>
+            <hr style="width: 20%">
     </div>
     <div>
-            <label for="">Income Amount:</label>
-            <span>{{income.IncomeAmount}}</span>
-    </div>
-    <div>
-            <label for="">Income Date:</label>
-            <span>{{income.IncomeDate}}</span>
+            <label class="types" for="">Date:</label><br>
+            <span> {{income.IncomeDate | date: 'fullDate'}}</span>
+            <hr style="width: 20%">
     </div>
 </div>
 
-<button mat-button color="warn" (click)="onDelete()">Delete</button>|
-<button mat-button color="primary" routerLink="/incomes">Back to List</button>
+<button mat-raised-button class="btn-delete" (click)="onDelete()">Delete</button>
+<br>
+<a class="btn-back" mat-button routerLink="/incomes">Back to List</a>
