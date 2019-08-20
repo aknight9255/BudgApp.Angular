@@ -33,6 +33,7 @@
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-size: 40px;
+    box-shadow:         inset -5px -5px 15px -5px rgb(60, 133, 125);
 }
 
 .logo-image{ /* Coin logo image */
