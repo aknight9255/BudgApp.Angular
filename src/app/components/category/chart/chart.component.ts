@@ -4,8 +4,6 @@ import { CategoryService } from 'src/app/service/category.service';
 import { TransactionService } from 'src/app/service/transaction.service';
 import { Observable, bindCallback } from 'rxjs';
 import { Category } from 'src/app/models/category';
-import { stringify } from '@angular/compiler/src/util';
-import { Variable } from '@angular/compiler/src/render3/r3_ast';
 
 @Component({
   selector: 'app-chart',
@@ -34,14 +32,14 @@ chartColor: string;
   //   toolTipContent: "<b>{categories}:</b> {y} (#percent%)"
   // }
   
-  // transactions: Transaction[]=[];
+  
   
   constructor(private _category: CategoryService, private _transaction: TransactionService, ) { }
   
   
   transactionData= []=[]; //Category[]=[];
   categories =[];
-  colors = ["#976877", "#757775", "#FF6AA6", "#7C9EC5"];
+  colors = [];
   
   
   chartOptions = {
@@ -55,7 +53,7 @@ chartColor: string;
         fontColor: this.colors,
         //fillStyle: 'rgb(42,602,900)',
         padding: 20,
-        backgroundColor: this.getRandomColor()
+        backgroundColor: this.getRandomColor
       },
     },
     indexLabel: "{categories} - #percent%",
@@ -113,9 +111,6 @@ chartColor: string;
 
       console.log(this.colors);
     });
-
-
-
 
 
     // for (let i = 0; i < this.categories.length; i++){
