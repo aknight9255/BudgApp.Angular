@@ -1,6 +1,13 @@
 mat-form-field{
     width: 50%;
 }
+mat-panel-title{
+    font-size: 20px;
+}
+h2{
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    color: #212529;
+}
 i:hover {
     transition: 0.3s;
 
@@ -11,9 +18,10 @@ i:hover {
     font-family: 'Quicksand', sans-serif;
     font-size: 20px;
     background-color: #5CCABF;
-    margin: 5px;
+    margin: 10px;
     text-decoration: none;
     text-align: center;
+    display: block;
 }
 
 .btn-submit:hover{
@@ -22,6 +30,6 @@ i:hover {
     font-family: 'Quicksand', sans-serif;
     font-size: 20px;
     background-color: rgb(164, 230, 223);
-    margin: 5px;
+    margin: 10px;
     text-decoration: none;
 }

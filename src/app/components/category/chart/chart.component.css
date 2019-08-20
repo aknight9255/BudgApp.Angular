@@ -1,11 +1,12 @@
 canvas.chartjs-render-monitor {
     border: none;
+    width: 100%;
 }
 
 .myChart{
     width: 950px;
     height: 500px;
-    text-align: center;
+    margin: 0, auto;
 }
 
 element.style {
@@ -15,4 +16,9 @@ element.style {
 }
 .legend {
     font-size: 100px;
+}
+
+div {
+    margin: 0 auto;
+    text-align: center;
 }
