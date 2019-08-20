@@ -1,5 +1,14 @@
-<h1>Login</h1>
-<hr>
+<header style="height: 1000px;">
+
+        <br>
+        <br>
+        
+        <mat-card class="card">
+                <h1 class="title-color">Login</h1>
+<h4 class="title-color">Welcome Back!</h4>
+
+<br>
+<br>
 
 <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="_loginForm">
     <div>
@@ -17,6 +26,10 @@
         </div>
     </div>
     <br>
-    <button mat-raised-button class="nav-btn" color="primary" type="submit">Login</button>
+    <button mat-raised-button class="btn-submit" color="primary" type="submit">Login</button>
 </form>
-<a routerLink="/register">Register as a new user</a>
+<a class="btn-other" routerLink="/register">Register as a new user</a>
+<br>
+<br>
+</mat-card>
+</header>
