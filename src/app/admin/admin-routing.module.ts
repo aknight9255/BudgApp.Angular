@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ManageIncomeComponent } from './manage-income/manage-income.component';
-import { ManageTransactionsComponent } from './manage-transactions/manage-transactions.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
@@ -13,8 +11,6 @@ const adminRoutes: Routes = [
       {
         path: '',
         children: [
-          { path: 'income', component: ManageIncomeComponent },
-          { path: 'transactions', component: ManageTransactionsComponent },
           { path: '', component: AdminDashboardComponent }
         ]
       }

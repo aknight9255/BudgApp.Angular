@@ -1,5 +1,5 @@
 export interface UserInfo {
-  Email: string;
+  UserName: string;
   Role: string;
   HasRegistered: boolean;
   LoginProvider?: any;

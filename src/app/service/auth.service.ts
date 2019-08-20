@@ -100,10 +100,14 @@ export class AuthService {
     refreshPage() {
       window.location.reload();
     }
+
+    getUsers(){
+      return this._http.get(`${APIURL}/users`, { headers: this.setHeader() });
+    }
  
   
   private setHeader(): HttpHeaders {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
-  
+
  }
