@@ -25,55 +25,31 @@ export class AuthService {
   }
 
   register(regUserData: RegisterUser) {
-    return this._http.post(`${APIURL}/api/Account/Register`, regUserData);
+    return this._http.post(`${APIURL}api/Account/Register`, regUserData);
   }
 
   login(loginInfo) {
     const str = `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
 
-    return this._http.post(`${APIURL}/token`, str).subscribe((token: Token) => {
+    return this._http.post(`${APIURL}token`, str).subscribe((token: Token) => {
       this.userInfo = token;
       localStorage.setItem('id_token', token.access_token);
       this.isLoggedIn = true;
       this.currentUser();
       this._router.navigate(['/incomes']); 
     });
-
-
-    // if (loginInfo.email == "admin@admin.admin" && loginInfo.password == "Admin1!") {
-    //   return this._http.post(`${APIURL}/token`, str).subscribe((token: Token) => {
-    //     this.userInfo = token;
-    //     localStorage.setItem('id_token', token.access_token);
-    //     // this.isLoggedIn.next(true);
-    //     this.isLoggedIn = true;
-    //     this.isAdmin = true;
-    //     //console.log("Eyyy lmao");
-    //     this._router.navigate(['/incomes']);
-    //   });
-    // }
-    // else {
-    //   return this._http.post(`${APIURL}/token`, str).subscribe((token: Token) => {
-    //     this.userInfo = token;
-    //     localStorage.setItem('id_token', token.access_token);
-    //     // this.isLoggedIn.next(true);
-    //     this.isLoggedIn = true;
-    //     this.isAdmin = false;
-    //     this._router.navigate(['/incomes']);
-    //   });
-    // }
   }
 
   logout(): Observable<Object> {
     localStorage.clear();
-    // this.isLoggedIn.next(false);
     this.isLoggedIn = false;
 
-    return this._http.post(`${APIURL}/api/Account/Logout`, { headers: this.setHeader() });
+    return this._http.post(`${APIURL}api/Account/Logout`, { headers: this.setHeader() });
   }
 
   
   currentUser() {
-    this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: this.setHeader() }).subscribe((userRole: UserInfo) => {
+    this._http.get(`${APIURL}api/Account/UserInfo`, { headers: this.setHeader() }).subscribe((userRole: UserInfo) => {
       localStorage.setItem('role', userRole.Role);
       this.adminUser();
       console.log(userRole)
@@ -102,7 +78,13 @@ export class AuthService {
     }
 
     getUsers(){
-      return this._http.get(`${APIURL}/api/Account/AllUsers`, { headers: this.setHeader() });
+      return this._http.get(`${APIURL}api/Account/AllUsers`, { headers: this.setHeader() });
+    }
+    getOneUser(id: string){
+      return this._http.get(`${APIURL}/api/Account/PullUserByID?ID=${id}`, { headers: this.setHeader() });
+    }
+    deleteUser(id: string){
+      return this._http.delete(`${APIURL}/api/Account/${id}`, { headers: this.setHeader() });
     }
  
   

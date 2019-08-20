@@ -21,6 +21,7 @@ import { TransactionEditComponent } from './components/transaction/transaction-e
 import { TransactionIndexComponent } from './components/transaction/transaction-index/transaction-index.component';
 import { HistoryComponent } from './components/history/history.component';
 import { AboutComponent } from './components/about/about.component';
+import { UserDeleteComponent } from './admin/user-delete/user-delete.component';
 
 
 
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'about', component: AboutComponent },
+
   {
     path: 'incomes', children: [
       { path: '', component: IncomeIndexComponent },
@@ -37,6 +39,7 @@ const routes: Routes = [
       { path: 'delete/:id', component: IncomeDeleteComponent },
     ]
   },
+
   {
     path: 'category', children: [
       { path: '', component: CategoryIndexComponent },
@@ -45,6 +48,7 @@ const routes: Routes = [
       { path: 'delete/:id', component: CategoryDeleteComponent },
     ]
   },
+
   {
     path: 'transactions', children: [
       { path: 'create', component: TransactionCreateComponent },
@@ -53,7 +57,24 @@ const routes: Routes = [
       { path: '', component: TransactionIndexComponent },
     ]
   },
-  { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] },
+
+  {
+    path: '', children: [
+      { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] },
+      { path: 'deleteUser/:id', component: UserDeleteComponent, canActivate: [AdminGuard] },
+    ]
+  },
+
+
+
+
+
+  // { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] },
+  // { path: 'deleteUser/:ID', component: UserDeleteComponent, canActivate: [AdminGuard] },
+
+
+
+
   { path: '**', component: AboutComponent },
 ];
 
