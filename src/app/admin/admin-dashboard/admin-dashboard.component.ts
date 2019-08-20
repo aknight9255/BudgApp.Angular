@@ -18,6 +18,7 @@ export class AdminDashboardComponent implements OnInit {
   ngOnInit() {
     this._authService.getUsers().subscribe((users: UserInfo[]) => {
       this.dataSource = new MatTableDataSource<UserInfo>(users);
+      console.log(users);
     });
     
   }

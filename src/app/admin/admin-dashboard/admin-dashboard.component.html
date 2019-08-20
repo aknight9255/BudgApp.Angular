@@ -11,7 +11,7 @@
   <ng-container matColumnDef="buttons">
       <mat-header-cell *matHeaderCellDef>hello</mat-header-cell>
       <mat-cell *matCellDef="let userinfo">
-          <i class="material-icons" routerLink="/#">delete</i>
+          <i class="material-icons" routerLink="/deleteUser/{{userinfo.UserId}}">delete</i>
       </mat-cell>
   </ng-container>
 
