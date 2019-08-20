@@ -1,6 +1,5 @@
-<br>
-<a mat-raised-button color="primary" routerLink="/category/create">Add Category</a>
-
+ <br>
+<h2>Transaction Overview</h2>
 <app-chart></app-chart>
 
 <mat-accordion>
@@ -10,23 +9,23 @@
         Manage Categories
       </mat-panel-title>
     </mat-expansion-panel-header>
-
+    
     <mat-form-field>
-      <input matInput placeholder="Categories">
+      <a mat-raised-button class="btn-submit" color="primary" routerLink="/category/create">Add Category</a>
+      <input matInput ="Categories">
       <mat-table #table [dataSource]="dataSource">
         <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
         <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
         <ng-container matColumnDef="CategoryType">
-          <mat-header-cell *matHeaderCellDef> Category Type </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
           <mat-cell *matCellDef="let category"> {{category.CategoryType}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="buttons">
           <mat-header-cell *matHeaderCellDef> </mat-header-cell>
           <mat-cell *matCellDef="let category">
-            <i mat-icon class="material-icons" color="warn" routerLink="/category/edit/{{category.CategoryID}}">edit</i>
-            <i class="material-icons" routerLink="/category/delete/{{category.CategoryID}}">delete</i>
+            <i matTooltip="Edit Category" aria label="Edit" mat-icon class="material-icons" color="warn" routerLink="/category/edit/{{category.CategoryID}}">edit</i>
+            <i matTooltip="Delete Category" aria label="Delete" class="material-icons" routerLink="/category/delete/{{category.CategoryID}}">delete</i>
           </mat-cell>
         </ng-container>
       </mat-table>
     </mat-form-field>
-

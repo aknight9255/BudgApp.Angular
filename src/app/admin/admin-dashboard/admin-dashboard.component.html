@@ -1,8 +1,18 @@
-<h3>ADMIN</h3>
-<nav>
-  <a routerLink="./" routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
-  <a routerLink="/incomes" routerLinkActive="active">Manage Income</a>
-  <a routerLink="/transactions" routerLinkActive="active">Manage Transactions</a>
-</nav>
-<router-outlet></router-outlet>
+<mat-table #table [dataSource]="dataSource">
+  <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+
+  <ng-container matColumnDef="Email">
+      <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+      <mat-cell *matCellDef="let userinfo">{{userinfo.Email}}</mat-cell>
+  </ng-container>
+
+
+  <ng-container matColumnDef="buttons">
+      <mat-header-cell *matHeaderCellDef>hello</mat-header-cell>
+      <mat-cell *matCellDef="let userinfo">
+          <i class="material-icons" routerLink="/deleteUser/{{userinfo.UserId}}">delete</i>
+      </mat-cell>
+  </ng-container>
+
+</mat-table>

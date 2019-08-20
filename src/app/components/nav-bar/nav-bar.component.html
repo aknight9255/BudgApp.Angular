@@ -10,7 +10,7 @@
   <button mat-button class="nav-btn" routerLink="/about" routerLinkActive="active-class">About</button>
   <span class="example-fill-remaining-space"></span>
 
-  <button mat-raised-button *ngIf="IsAdmin" class="admin" class="nav-btn nav-btn-raised nav-btn-side" routerLink="/admin-dashboard" routerLinkActive="active-class">Admin</button>
+  <button mat-raised-button *ngIf="this.authService.isLoggedIn && this.authService.isAdmin" class="nav-btn nav-btn-raised nav-btn-side" routerLink="/admin-dashboard" routerLinkActive="active-class">Admin</button>
 
   <button *ngIf="this.authService.isLoggedIn" class="loggedIn" mat-raised-button class="nav-btn nav-btn-raised nav-btn-side" (click)="onLoggout()">Logout</button> 
 

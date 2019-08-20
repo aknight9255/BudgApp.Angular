@@ -1,0 +1,56 @@
+.btn-submit{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    background-color: #5CCABF;
+    margin: 5px;
+    text-decoration: none;
+}
+
+.btn-submit:hover{
+
+    transition: 0.3s;
+
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    background-color: rgb(164, 230, 223);
+    margin: 5px;
+    text-decoration: none;
+}
+
+.btn-other {
+    color: #bdbdbd;
+}
+
+.title-color{
+    font-family: 'Quicksand', sans-serif;
+    color: #5CCABF;
+    font-weight: bold;
+}
+header {
+    background-image: url('../../../assets/skyline.jpg');
+    background-size: 2000px 1000px;
+}
+
+
+.mat-card{
+    box-shadow: 0 2px 6px -1px rgba(0,0,0,.2), 0 1px 4px 0px rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    border-radius: 25px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.card{
+    width: 400px;
+    height: 500px;
+    list-style: none;
+    margin: 30px;
+    background-color:rgba(255, 255, 255, 0.5);
+    margin: 0 auto;
+}
+
+.logo-image{ /* Coin logo image */
+    width: 95px;
+    height: 95px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

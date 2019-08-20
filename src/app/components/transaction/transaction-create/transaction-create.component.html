@@ -1,4 +1,4 @@
-<h1>Create transaction</h1>
+<h1 class="title-color">Record Transaction</h1>
 <hr>
 
 <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="transactionForm">
@@ -6,7 +6,8 @@
 
     <div>
       <mat-form-field>
-        <input matInput placeholder="TransactionAmount" formControlName="TransactionAmount" type="TransactionAmount" required/>
+        <input matInput placeholder="Amount" formControlName="TransactionAmount" type="TransactionAmount" required>
+        <span style="color: #747474;" matPrefix>$&nbsp;</span>
       </mat-form-field>
     </div>
 
@@ -18,7 +19,7 @@
 
     <div>
       <mat-form-field>
-          <mat-select formControlName="CategoryID"> 
+          <mat-select formControlName="CategoryID" placeholder="Category"> 
               <mat-option *ngFor="let category of categories" value="{{category.CategoryID}}" >
                 {{category.CategoryType}}
               </mat-option>
@@ -27,7 +28,7 @@
     </div>
 
   </div>
-  <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Note</button>
+  <button mat-raised-button class="btn-submit" color="primary" type="submit">Record Transaction</button>
 </form>
 
-<a mat-button routerLink="/transactions">Back to List</a>
+<a class="btn-back" mat-button routerLink="/incomes">Back to List</a>
