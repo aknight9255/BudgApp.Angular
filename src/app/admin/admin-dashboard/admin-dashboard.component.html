@@ -1,19 +1,18 @@
-<!-- <mat-table #table [dataSource]="dataSource">
+<mat-table #table [dataSource]="dataSource">
   <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
   <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
-  <ng-container matColumnDef="UserName">
+  <ng-container matColumnDef="Email">
       <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
-      <mat-cell *matCellDef="let userinfo">$ {{userinfo.UserName}}</mat-cell>
+      <mat-cell *matCellDef="let userinfo">{{userinfo.Email}}</mat-cell>
   </ng-container>
 
 
   <ng-container matColumnDef="buttons">
       <mat-header-cell *matHeaderCellDef>hello</mat-header-cell>
       <mat-cell *matCellDef="let userinfo">
-          <i mat-icon class="material-icons" routerLink="#"> edit </i>
           <i class="material-icons" routerLink="/#">delete</i>
       </mat-cell>
   </ng-container>
 
-</mat-table> -->
+</mat-table>

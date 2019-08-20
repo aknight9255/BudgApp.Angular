@@ -10,7 +10,7 @@ import { MatTableDataSource} from '@angular/material';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
-  columnNames = ['UserName','buttons']
+  columnNames = ['Email','buttons']
   dataSource: MatTableDataSource<UserInfo>
 
   constructor(private _authService: AuthService) { }

@@ -102,7 +102,7 @@ export class AuthService {
     }
 
     getUsers(){
-      return this._http.get(`${APIURL}/users`, { headers: this.setHeader() });
+      return this._http.get(`${APIURL}/api/Account/AllUsers`, { headers: this.setHeader() });
     }
  
   
