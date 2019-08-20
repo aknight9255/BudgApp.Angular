@@ -53,3 +53,7 @@ i:hover {
     padding-top: 2vw;
     padding-bottom: 2vw;
 }
+
+mat-row:hover{
+    background-color: rgba(226, 226, 226, 0.4);
+}
