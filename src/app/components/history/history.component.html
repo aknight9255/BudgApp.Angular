@@ -2,8 +2,10 @@
 <mat-tab-group>
         <mat-tab label="Transaction History">
              <div class="tableOne">
-                    <h2>Transaction History</h2>
-                    <a mat-raised-button class="btn-submit" color="primary" routerLink="/transactions/create">Create New</a>
+                    <h1 class="title-color">Transaction History</h1>
+                    <a mat-raised-button class="btn-submit" color="primary" routerLink="/transactions/create">Record Transaction</a>
+                    <br>
+                    <br>
                     <mat-table #table [dataSource]="dataSourceTransaction" matSort class="mat-elevation-z8">
                             <mat-header-row *matHeaderRowDef="columnNamesTransaction; sticky: true"></mat-header-row>
                             <mat-row *matRowDef="let row; columns: columnNamesTransaction;"></mat-row>
@@ -38,8 +40,10 @@
 
         <mat-tab label="Income History"> 
                 <div class="tableOne">
-                        <h2>Income History</h2>
-                        <a mat-raised-button class="btn-submit" color="primary" routerLink="/incomes/create"> Create New </a>
+                        <h1 class="title-color">Income History</h1>
+                        <a mat-raised-button class="btn-submit" color="primary" routerLink="/incomes/create"> Add Income </a>
+                        <br>
+                        <br>
             <mat-table #table [dataSource]="dataSourceIncome" matSort class="mat-elevation-z8">
                     <mat-header-row *matHeaderRowDef="columnNamesIncome"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: columnNamesIncome;"></mat-row>
