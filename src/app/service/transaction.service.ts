@@ -11,27 +11,27 @@ export class TransactionService {
   constructor(private _http: HttpClient) { }
 
   getTransactions(){
-    return this._http.get(`${APIURL}/api/Transaction`, {headers: this.getHeaders()});
+    return this._http.get(`${APIURL}api/Transaction`, {headers: this.getHeaders()});
   }
   
   getTransaction(id: string){
-    return this._http.get(`${APIURL}/api/Transaction/${id}`, { headers: this.getHeaders() });
+    return this._http.get(`${APIURL}api/Transaction/${id}`, { headers: this.getHeaders() });
   }
 
   getTransactionByMonth(coolDate: string){
-    return this._http.get(`${APIURL}/api/Transaction?coolDate=${coolDate}`, { headers: this.getHeaders() });
+    return this._http.get(`${APIURL}api/Transaction?coolDate=${coolDate}`, { headers: this.getHeaders() });
   }
 
   createTransaction(transaction: Transaction){
-    return this._http.post(`${APIURL}/api/Transaction`,transaction, { headers: this.getHeaders()});
+    return this._http.post(`${APIURL}api/Transaction`,transaction, { headers: this.getHeaders()});
   }
 
   updateTransaction(transaction: Transaction){
-    return this._http.put(`${APIURL}/api/Transaction`,transaction, { headers: this.getHeaders()});
+    return this._http.put(`${APIURL}api/Transaction`,transaction, { headers: this.getHeaders()});
   }
 
   pullBalance(monthKey: string){
-    return this._http.get(`${APIURL}/api/Transaction/GetBalance?monthKey=${monthKey}`, { headers: this.getHeaders() });
+    return this._http.get(`${APIURL}api/Transaction/GetBalance?monthKey=${monthKey}`, { headers: this.getHeaders() });
 
   }
 

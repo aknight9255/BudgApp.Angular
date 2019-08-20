@@ -26,8 +26,12 @@ export class HistoryComponent implements OnInit {
     });
 
     this._transactionService.getTransactions().subscribe((transactions: Transaction[]) => {
+      console.log(transactions);
       this.dataSourceTransaction = new MatTableDataSource<Transaction>(transactions);
       this.dataSourceTransaction.sort = this.sort;
+      console.log(this.dataSourceTransaction);
+      
     });
+    
   }
 }
