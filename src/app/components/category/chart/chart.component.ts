@@ -62,7 +62,6 @@ chartColor: string;
     toolTipContent: "<b>{categories}:</b> {y} (#percent%)"
   }
 
-
   chartData = [{
     backgroundColor: this.colors,
     borderColor: 'rgb(255, 255, 255)',

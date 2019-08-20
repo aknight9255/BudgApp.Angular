@@ -19,6 +19,7 @@ import {
     MatSortModule,
     MatTabsModule,
     MatExpansionModule,
+    MatDialogModule,
 } from '@angular/material';
 
 import { MatDividerModule } from '@angular/material/divider';
@@ -58,41 +59,6 @@ import { AdminGuard } from './guards/admin.guard';
 
 import { HistoryComponent } from './components/history/history.component';
 import { AboutComponent } from './components/about/about.component';
-// const routes: Routes = [
-//   { path: 'register', component: RegistrationComponent },
-//   { path: 'login', component: LoginComponent },
-//   {
-//     path: 'incomes', children: [
-//       { path: '', component: IncomeIndexComponent },
-//       { path: 'create', component: IncomeCreateComponent },
-//       { path: 'edit/:id', component: IncomeEditComponent },
-//       { path: 'delete/:id', component: IncomeDeleteComponent },
-//     ]
-//   },
-//   {
-//     path: 'category', children: [
-//       { path: '', component: CategoryIndexComponent },
-//       { path: 'create', component: CategoryCreateComponent },
-//       { path: 'edit/:id', component: CategoryEditComponent },
-//       { path: 'delete/:id', component: CategoryDeleteComponent },
-//     ]
-//   },
-//   {
-//     path: 'transactions', children: [
-//       { path: '', component: TransactionIndexComponent },
-//       { path: 'create', component: TransactionCreateComponent },
-//       { path: 'edit/:id', component: TransactionEditComponent },
-//       { path: 'delete/:id', component: TransactionDeleteComponent },
-//     ]
-//   },
-//   { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] },
-//   { path: '**', component: RegistrationComponent },
-// ]
-
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -146,6 +112,7 @@ import { AboutComponent } from './components/about/about.component';
     MatTabsModule,
     ChartsModule,
     MatExpansionModule,
+    MatDialogModule,
   ],
   providers: [
     AuthService,

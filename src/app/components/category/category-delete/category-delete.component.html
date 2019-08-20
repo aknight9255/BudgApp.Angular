@@ -1,16 +1,15 @@
-<h1>Delete</h1>
-<h4>Are you sure you want to delete this?</h4>
+<h1 class="title-color">Delete Category</h1>
+<h4 class="title-color">Are you sure you want to delete this Category :(</h4>
 <hr> 
-<div *ngIf="">
+<div>
     <div>
-        <label for="">CategoryID:</label>
-        <span>{{category.CategoryID}}</span>
-    </div>
-    <div>
-            <label for="">Category Type:</label>
+            <label class ="types" for="">Category Type:</label><br>
             <span>{{category.CategoryType}}</span>
+            <hr style="width: 20%">
     </div>
 </div>
+<p>WARNING: Deleting this category will delete ALL transactions associated with it.</p>
 
-<button mat-button color="warn" (click)="onDelete()">Delete</button>|
-<button mat-button color="primary" routerLink="/category">Back to List</button>
+<button mat-raised-button class="btn-delete" (click)="onDelete()">Delete</button>
+<br>
+<a class="btn-back" mat-button routerLink="/category">Back to List</a>
