@@ -42,6 +42,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 The Bakerstreet coders: 
 [Chase Kuhn](https://chase00.github.io/)
 [Shabnam Ziyovuddinova](https://shabnamz.github.io)
-[Mason Garard](#) 
+[Mason Garard](https://masongarard.github.io) 
 [Amanda Knight](https://aknight9255.github.io/) 
 

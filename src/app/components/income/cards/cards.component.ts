@@ -34,32 +34,32 @@ export class Cards {
       console.log(this.fullDateMonthOne);
       this._transactionService.getTransactionByMonth(this.fullDateMonthOne).subscribe((transactions: Transaction[]) => {
         this.dataSourceOne = new MatTableDataSource<Transaction>(transactions);
-        console.log(transactions)
+        // console.log(transactions)
       });
   
       this._transactionService.getTransactionByMonth(this.fullDateMonthTwo).subscribe((transactions: Transaction[]) => {
         this.dataSourceTwo = new MatTableDataSource<Transaction>(transactions);
-        console.log(transactions)
+        // console.log(transactions)
       });
   
       this._transactionService.getTransactionByMonth(this.fullDateMonthThree).subscribe((transactions: Transaction[]) => {
         this.dataSourceThree = new MatTableDataSource<Transaction>(transactions);
-        console.log(transactions)
+        // console.log(transactions)
       });
       
       this._transactionService.pullBalance((this.fullDateMonthOne)).subscribe((singleBalance: number) => {
         this.balanceOne = singleBalance;
-        console.log(singleBalance)
+        // console.log(singleBalance)
       });
 
       this._transactionService.pullBalance((this.fullDateMonthTwo)).subscribe((singleBalance: number) => {
         this.balanceTwo = singleBalance;
-        console.log(singleBalance)
+        // console.log(singleBalance)
       });
 
       this._transactionService.pullBalance((this.fullDateMonthThree)).subscribe((singleBalance: number) => {
         this.balanceThree = singleBalance;
-        console.log(singleBalance)
+        // console.log(singleBalance)
       });
       
     }
