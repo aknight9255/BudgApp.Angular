@@ -30,6 +30,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'about', component: AboutComponent },
+  { path: '', component: AboutComponent },
+
 
   {
     path: 'incomes', children: [
@@ -64,16 +66,6 @@ const routes: Routes = [
       { path: 'deleteUser/:id', component: UserDeleteComponent, canActivate: [AdminGuard] },
     ]
   },
-
-
-
-
-
-  // { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] },
-  // { path: 'deleteUser/:ID', component: UserDeleteComponent, canActivate: [AdminGuard] },
-
-
-
 
   { path: '**', component: AboutComponent },
 ];
