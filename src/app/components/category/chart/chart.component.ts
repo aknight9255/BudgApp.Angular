@@ -53,7 +53,8 @@ chartColor: string;
         fontColor: this.colors,
         //fillStyle: 'rgb(42,602,900)',
         padding: 20,
-        backgroundColor: this.getRandomColor
+        backgroundColor: this.getRandomColor,
+        borderAlign: 'center'
       },
     },
     indexLabel: "{categories} - #percent%",
