@@ -1,4 +1,4 @@
-<h1>Edit a category.</h1>
+<h1 class="title-color">Edit Category</h1>
 <hr>
 
 <div *ngIf='category'>
@@ -11,10 +11,10 @@
             </div>
             <div>
                     <mat-form-field>
-                        <input matInput placeholder="CategoryType" formControlName="CategoryType" type="CategoryType" required [value]="category.CategoryType" />
+                        <input matInput placeholder="Category" formControlName="CategoryType" type="CategoryType" required [value]="category.CategoryType" />
                     </mat-form-field>
                 </div>
         </div>
-        <button mat-raised-button class="nav-btn" color="primary" type="submit">Save</button>
+        <button mat-raised-button class="btn-submit" color="primary" type="submit">Save</button>
     </form>
 </div>
