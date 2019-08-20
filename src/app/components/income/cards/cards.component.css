@@ -1,5 +1,54 @@
 .mat-card{
     box-shadow: 0 2px 6px -1px rgba(0,0,0,.2), 0 1px 4px 0px rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    border-radius: 15px;
+}
+
+.card-btn-income{
+    display: block;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    background-color: #5CCABF;
+    margin: 5px;
+    text-decoration: none;
+}
+
+.card-btn-income:hover{
+
+    transition: 0.3s;
+
+    display: block;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    background-color: rgb(164, 230, 223);
+    margin: 5px;
+    text-decoration: none;
+}
+
+.card-btn-transaction{
+    display: block;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    background-color: #5CCABF;
+    margin: 5px;
+    text-decoration: none;
+}
+
+.card-btn-transaction:hover{
+
+    transition: 0.3s;
+
+    display: block;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    background-color: rgb(164, 230, 223);
+    margin: 5px;
+    text-decoration: none;
+}
+
+i:hover {
+    transition: 0.3s;
+
+    color: #5CCABF;
 }
 
 .mat-card-title{
@@ -28,13 +77,30 @@ ul {
     margin-bottom: 0;
 }
 p{
-    font-size: 50%;
-    border: 1px #5CCABF solid;
-    color: #5CCABF;
-    margin-top: 65px;
+    font-size: 40%;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 3px;
 
 }
 
+.positive {
+    color: #5CCABF;
+    background-color: rgb(227, 255, 252);
+    font-family: 'Nunito', sans-serif;
+}
+
+.negative {
+    color: rgb(228, 77, 77);
+    background-color: rgb(255, 220, 220);
+    font-family: 'Nunito', sans-serif;
+}
+
 h5{
-    color: rgba(0,0,0,.54);
+    color: rgba(102, 102, 102, 0.54);
+    font-size: 25px;
+}
+
+.mat-cell{
+    color: rgb(26, 26, 26);
 }

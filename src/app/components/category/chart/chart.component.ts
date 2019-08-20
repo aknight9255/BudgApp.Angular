@@ -35,6 +35,7 @@ chartColor: string;
   
   
   constructor(private _category: CategoryService, private _transaction: TransactionService, ) { }
+
   
   
   transactionData= []=[]; //Category[]=[];
@@ -61,6 +62,15 @@ chartColor: string;
     toolTipContent: "<b>{categories}:</b> {y} (#percent%)"
   }
   
+
+
+
+ transactionData= []=[]; //Category[]=[];
+ categories =[];
+ cateName=[];
+
+
+
   chartData = [{
     backgroundColor: this.colors,
     borderColor: 'rgb(255, 255, 255)',
