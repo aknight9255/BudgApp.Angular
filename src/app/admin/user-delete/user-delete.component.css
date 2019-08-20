@@ -1,0 +1,27 @@
+.btn-delete{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    background-color: rgb(255, 75, 75);
+    color: white;
+    margin: 5px;
+    text-decoration: none;
+}
+
+.btn-delete:hover{
+
+    transition: 0.3s;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    background-color: rgb(255, 137, 137); 
+    margin: 5px;
+    text-decoration: none;
+}
+
+.btn-back {
+    color: #747474;
+}
+
+.title-color{
+    font-family: 'Quicksand', sans-serif;
+    color: #747474;
+}
