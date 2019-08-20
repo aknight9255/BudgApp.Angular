@@ -61,15 +61,6 @@ chartColor: string;
     indexLabel: "{categories} - #percent%",
     toolTipContent: "<b>{categories}:</b> {y} (#percent%)"
   }
-  
-
-
-
- transactionData= []=[]; //Category[]=[];
- categories =[];
- cateName=[];
-
-
 
   chartData = [{
     backgroundColor: this.colors,
