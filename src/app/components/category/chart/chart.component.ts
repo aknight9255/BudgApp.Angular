@@ -35,10 +35,8 @@ chartColor: string;
   
   
   constructor(private _category: CategoryService, private _transaction: TransactionService, ) { }
-
   
-  
-  transactionData= []=[]; //Category[]=[];
+  transactionData= []=[]; 
   categories =[];
   colors = [];
   
@@ -61,15 +59,6 @@ chartColor: string;
     indexLabel: "{categories} - #percent%",
     toolTipContent: "<b>{categories}:</b> {y} (#percent%)"
   }
-  
-
-
-
- transactionData= []=[]; //Category[]=[];
- categories =[];
- cateName=[];
-
-
 
   chartData = [{
     backgroundColor: this.colors,
@@ -82,24 +71,17 @@ chartColor: string;
   }];
   chartLabels = this.categories;
   
-
-  
-
   getRandomColor() {
     var letters = '7777756789ABCDEF'.split('');
     var color = '#';
     for (var i = 0; i < 6; i++) {
       color += letters[Math.floor(Math.random() * 16)];
     }
-
     // this.chartColor = color;
     return color;
-
   }
 
   ngOnInit() {
-
- 
     this._transaction.pullChartData().subscribe(e => {
       for (let i = 0; i < e.length; i++) {
         this.transactionData.push(e[i]);

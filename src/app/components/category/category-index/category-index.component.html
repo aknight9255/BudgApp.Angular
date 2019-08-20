@@ -11,7 +11,7 @@
     </mat-expansion-panel-header>
     
     <mat-form-field>
-      <a mat-raised-button color="primary" routerLink="/category/create">Add Category</a>
+      <a mat-raised-button class="btn-submit" color="primary" routerLink="/category/create">Add Category</a>
       <input matInput ="Categories">
       <mat-table #table [dataSource]="dataSource">
         <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
