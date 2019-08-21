@@ -1,6 +1,5 @@
-# BudgAppAngular
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
+# BudgApp
+Budgeting done simple.
 
 
 ## About
@@ -12,6 +11,9 @@ Calendar view that shows when payday falls and when bills fall with a badge that
 
 We would also like to be able to set income or bills as recurring so you won’t have to enter them every month just update when needed. 
 
+# Angular
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
 
 ## Development server
 
