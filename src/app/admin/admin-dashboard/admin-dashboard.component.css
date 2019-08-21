@@ -2,3 +2,17 @@ i:hover {
     transition: 0.3s;
     color: #5CCABF;
 }
+
+.title-color{
+    font-family: 'Quicksand', sans-serif;
+    color: #747474;
+}
+
+* {
+    margin-left: 8vw;
+    margin-right: 8vw;
+} 
+
+mat-header-cell{
+    text-align: center;
+}

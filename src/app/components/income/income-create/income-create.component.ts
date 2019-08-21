@@ -26,7 +26,7 @@ export class IncomeCreateComponent implements OnInit {
   
   onSubmit() {
       this._incomeService.createIncome(this.incomeForm.value).subscribe(data => {
-        this._router.navigate(['/history']);
+        this._router.navigate(['/incomes']);
         console.log(data);
       });
     }

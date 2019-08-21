@@ -104,3 +104,7 @@ h5{
 .mat-cell{
     color: rgb(26, 26, 26);
 }
+
+mat-row:hover{
+    background-color: rgba(226, 226, 226, 0.4);
+}
