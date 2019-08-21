@@ -1,8 +1,5 @@
-# BudgApp
-Budgeting done simple.
+## BudgApp
 
-
-## About
 BudgApp is a fun but useful budgeting app. In the main page you will find three boxes that will show what your next three months of budgeting looks like starting with the current month. You also have the ability to look at all transactions or incomes that have been entered. In the overview page you are able to get a look at your spending overall. With a doughnut graph it shows you a breakdown of all transactions based on category. 
 
 What we would include in a version 2.0: 
