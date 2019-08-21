@@ -8,6 +8,18 @@ Calendar view that shows when payday falls and when bills fall with a badge that
 
 We would also like to be able to set income or bills as recurring so you won’t have to enter them every month just update when needed. 
 
+## Developers 
+
+[Amanda Knight](https://aknight9255.github.io/) 
+
+[Chase Kuhn](https://chase00.github.io/)
+
+[Shabnam Ziyovuddinova](https://shabnamz.github.io)
+
+[Mason Garard](https://masongarard.github.io) 
+
+(The Bakerstreet Coders) 
+
 # Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
@@ -36,11 +48,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 "# BudgApp.Angular" 
-
-## Developers 
-The Bakerstreet coders: 
-[Chase Kuhn](https://chase00.github.io/)
-[Shabnam Ziyovuddinova](https://shabnamz.github.io)
-[Mason Garard](https://masongarard.github.io) 
-[Amanda Knight](https://aknight9255.github.io/) 
 
